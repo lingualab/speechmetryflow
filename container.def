@@ -1,0 +1,8 @@
+Bootstrap: docker
+From: python:3.12.4-slim-bookworm
+
+%post
+    apt update
+    apt install -y ffmpeg
+    apt autoremove -y
+    pip install lingualabpy[dev]
