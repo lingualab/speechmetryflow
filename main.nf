@@ -17,7 +17,7 @@ process Extract_Variables {
 
     script:
     """
-    python /home/chris/dev/Text2Variable/src/main.py ${transcription} sm -o ${pid}_metrics.json
+    text2variable ${transcription} trf
     """
 }
 
