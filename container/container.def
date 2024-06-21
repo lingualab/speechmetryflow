@@ -8,5 +8,5 @@ From: python:3.12.4-slim-bookworm
     pip install https://github.com/lingualab/lingualabpy/archive/main.zip
     pip install https://github.com/lingualab/Text2Variable/archive/main.zip
     python -m spacy download en_core_web_sm
-    python -m spacy download en_core_web_trf
+    python -m spacy download en_core_web_lg
     python -m nltk.downloader -d /usr/local/share/nltk_data words
