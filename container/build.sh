@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-container_name="speechmetryflow_dev.sif"
+# Building
+container_name="speechmetryflow_last.sif"
 apptainer build -F ${container_name} container.def
+
+# Publishing
 rsync -av ${container_name} elm:/data/brambati/local/containers/lingualab/
