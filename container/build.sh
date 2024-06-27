@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Building
-container_name="speechmetryflow_last.sif"
+container_name="speechmetryflow_0.0.1.sif"
 apptainer build -F ${container_name} container.def
 
 # Publishing
