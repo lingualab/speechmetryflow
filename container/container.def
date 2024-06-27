@@ -7,7 +7,7 @@ From: python:3.12.4-slim-bookworm
     apt install -y ffmpeg
     apt autoremove -y
     pip install https://github.com/lingualab/lingualabpy/archive/main.zip
-    pip install https://github.com/lingualab/Text2Variable/archive/main.zip
+    pip install https://github.com/lingualab/Text2Variable/archive/refs/tags/0.0.1.zip
     python -m spacy download en_core_web_sm
     python -m spacy download en_core_web_lg
     python -m nltk.downloader -d /usr/local/share/nltk_data words
