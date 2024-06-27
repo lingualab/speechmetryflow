@@ -6,7 +6,7 @@ From: python:3.12.4-slim-bookworm
     apt update
     apt install -y ffmpeg
     apt autoremove -y
-    pip install https://github.com/lingualab/lingualabpy/archive/main.zip
+    pip install lingualabpy==0.0.4
     pip install https://github.com/lingualab/Text2Variable/archive/refs/tags/0.0.1.zip
     python -m spacy download en_core_web_sm
     python -m spacy download en_core_web_lg
@@ -18,6 +18,4 @@ From: python:3.12.4-slim-bookworm
     pipeline('sentiment-analysis', model=model_path, tokenizer=model_path)"
 
 %environment
-    export HF_DATASETS_OFFLINE=1
-    export HF_HUB_OFFLINE=1
     export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface" 
