@@ -59,11 +59,8 @@ workflow {
         params.text_extension)
         .flatten()
 
-    Audio_Metrics(audiofiles)
-    Text_Metrics(textfiles)
-
-    audio_jsons = Audio_Metrics.out.collect()
-    text_jsons = Text_Metrics.out.collect()
+    audio_jsons = Audio_Metrics(audiofiles).collect()
+    text_jsons = Text_Metrics(textfiles).collect()
 
     merge_audio(audio_jsons, params.audio_output)
     merge_text(text_jsons, params.text_output)
