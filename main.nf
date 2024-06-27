@@ -22,7 +22,7 @@ process Audio_Metrics {
 
     script:
     """
-    lingualabpy_audio_metrics -p ${args.participant_id} ${args.file}
+    lingualabpy_audio_metrics --sex ${args.sex} -p ${args.participant_id} ${args.file}
     """
 }
 
