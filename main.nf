@@ -1,45 +1,70 @@
 #!/usr/bin/env nextflow
 
-log.info "Input: $params.input"
-root = file(params.input)
-
-transcriptions = channel
-    .fromPath("$root/*.json", maxDepth:1)
-    .map{[it.getSimpleName(), it]}
+include { glob_files as glob_audiofiles } from './modules/utils'
+include { glob_files as glob_textfiles } from './modules/utils'
+include { merge_jsons as merge_audio } from './modules/utils'
+include { merge_jsons as merge_text } from './modules/utils'
 
 
-process Extract_Variables {
+log.info "Input CSV: $params.input"
+log.info "Audio folder: $params.audio_folder"
+log.info "Text folder: $params.text_folder"
+
+
+process Audio_Metrics {
+    publishDir = './results/Audio_Metrics'
+
     input:
-    tuple val(pid), file(transcription)
+    val args
 
     output:
-    file "${pid}_metrics.json"
+    file "*.json"
 
     script:
     """
-    text2variable ${transcription} trf
+    lingualabpy_audio_metrics -p ${args.participant_id} ${args.file}
     """
 }
 
-
-process Combine_Jsons {
-    publishDir './results', mode: 'link'
+process Text_Metrics {
+    publishDir = './results/Text_metrics'
 
     input:
-    file jsons
+    val args
 
     output:
-    file "population_metrics.csv"
+    file "*.json"
 
     script:
     """
-    lingualabpy_jsons2csv -c ID *.json population_metrics.csv
+    text2variable --pid ${args.participant_id} -d . -o ${args.participant_id}_text_metric.json -l ${args.langue} ${args.file} lg
     """
 }
+
 
 workflow {
-    transcriptions
-    Extract_Variables(transcriptions)
-    metrics = Extract_Variables.out.collect()
-    Combine_Jsons(metrics)
+    participants_args = channel
+        .fromPath(params.input)
+        .splitCsv(header: true)
+
+    audiofiles = glob_audiofiles(
+        participants_args,
+        params.audio_folder,
+        params.audio_extension)
+        .flatten()
+
+    textfiles = glob_textfiles(
+        participants_args,
+        params.text_folder,
+        params.text_extension)
+        .flatten()
+
+    Audio_Metrics(audiofiles)
+    Text_Metrics(textfiles)
+
+    audio_jsons = Audio_Metrics.out.collect()
+    text_jsons = Text_Metrics.out.collect()
+
+    merge_audio(audio_jsons, params.audio_output)
+    merge_text(text_jsons, params.text_output)
 }
