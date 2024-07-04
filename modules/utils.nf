@@ -13,23 +13,10 @@ process glob_files {
     exec:
     pid = args.participant_id
     outputs = []
-    allfiles = files("${folder}/**/${pid}*${extension}")
-    if (allfiles.size() == 1) {
+    files("${folder}/**/${pid}*${extension}").each { it ->
         out = args.clone()
-        out.file = allfiles[0]
+        out.file = it
         outputs << out
-    } else {
-        allfiles.eachWithIndex { onefile, i ->
-            out = args.clone()
-            out.file = onefile
-            run = onefile.getSimpleName().split("_").find { it.startsWith("run") }
-            if (run) {
-                out.participant_id += "_${run}"
-            } else {
-                out.participant_id += "_run-${i+1}"
-            }
-            outputs << out
-        }
     }
 }
 
