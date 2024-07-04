@@ -1,12 +1,16 @@
 Bootstrap: docker
 From: python:3.12.4-slim-bookworm
 
+%files
+    ./praat_scripts/FilledPauses.praat /usr/local/share/praat/FilledPauses.praat
+    ./praat_scripts/syllablenucleiv3.praat /usr/local/share/praat/syllablenucleiv3.praat
+
 %post
     export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface"
     apt update
-    apt install -y ffmpeg
+    apt install -y ffmpeg wget libgtk-3-0 libpulse-dev libasound2
     apt autoremove -y
-    pip install lingualabpy==0.0.4
+    pip install lingualabpy==0.0.5
     pip install https://github.com/lingualab/Text2Variable/archive/refs/tags/0.0.1.zip
     python -m spacy download en_core_web_sm
     python -m spacy download en_core_web_lg
@@ -16,6 +20,11 @@ From: python:3.12.4-slim-bookworm
     AutoModelWithLMHead.from_pretrained('mrm8488/t5-base-finetuned-emotion');\
     model_path = 'cardiffnlp/twitter-xlm-roberta-base-sentiment';\
     pipeline('sentiment-analysis', model=model_path, tokenizer=model_path)"
+    wget https://www.fon.hum.uva.nl/praat/praat6413_linux-intel64.tar.gz
+    tar zxf praat6413_linux-intel64.tar.gz -C /usr/bin
+    rm praat6413_linux-intel64.tar.gz
+
 
 %environment
-    export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface" 
+    export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface"
+    export PRAAT_SCRIPTS_DIR="/usr/local/share/praat"
