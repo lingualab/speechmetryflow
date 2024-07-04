@@ -12,7 +12,7 @@ log.info "Text folder: $params.text_folder"
 
 
 process Audio_Metrics {
-    publishDir = './results/Audio_Metrics'
+    publishDir = "./results/Audio_Metrics"
 
     input:
     val args
@@ -26,8 +26,34 @@ process Audio_Metrics {
     """
 }
 
+process Uhmometer_Metrics {
+    publishDir = "./results/Uhmometer_Metrics"
+
+    input:
+    val args
+    val uhmometer
+
+    output:
+    file "*.csv"
+
+    script:
+    """
+    praat --run ${PRAAT_SCRIPTS_DIR}/syllablenucleiv3.praat $(pwd)/ \
+        ${uhmometer.preprocessing} \
+        ${uhmometer.silence_threshold} \
+        ${uhmometer.minimum_dip_near_peak} \
+        ${uhmometer.minimum_pause_duration} \
+        ${uhmometer.detect_filled_pauses} \
+        ${uhmometer.language} \
+        ${uhmometer.filled_pause_threshold} \
+        "Praat Info window" \
+        ${uhmometer.data_collection_type} \
+        ${uhmometer.keep_objects} > metric.csv
+    """
+}
+
 process Text_Metrics {
-    publishDir = './results/Text_metrics'
+    publishDir = "./results/Text_metrics"
 
     input:
     val args
@@ -60,6 +86,7 @@ workflow {
         .flatten()
 
     audio_jsons = Audio_Metrics(audiofiles).collect()
+    uhmometer_jsons = Uhmometer_Metrics(audiofiles, params.uhmometer).collect()
     text_jsons = Text_Metrics(textfiles).collect()
 
     merge_audio(audio_jsons, params.audio_output)
