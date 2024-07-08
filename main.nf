@@ -27,18 +27,21 @@ process Audio_Metrics {
 }
 
 process Uhmometer_Metrics {
-    publishDir = "./results/Uhmometer_Metrics"
+    publishDir "./results", mode: "copy"
 
     input:
-    val args
+    path audiofiles
     val uhmometer
 
     output:
-    file "*.csv"
+    file "${uhmometer.output}"
 
     script:
     """
-    praat --run ${PRAAT_SCRIPTS_DIR}/syllablenucleiv3.praat $(pwd)/ \
+    mkdir input fontconfig_cache
+    export XDG_CACHE_HOME="fontconfig_cache"
+    mv *.wav input/
+    praat --run \${PRAAT_SCRIPTS_DIR}/syllablenucleiv3.praat \$(pwd)/input/ \
         ${uhmometer.preprocessing} \
         ${uhmometer.silence_threshold} \
         ${uhmometer.minimum_dip_near_peak} \
@@ -48,7 +51,7 @@ process Uhmometer_Metrics {
         ${uhmometer.filled_pause_threshold} \
         "Praat Info window" \
         ${uhmometer.data_collection_type} \
-        ${uhmometer.keep_objects} > metric.csv
+        ${uhmometer.keep_objects} > ${uhmometer.output}
     """
 }
 
@@ -86,8 +89,12 @@ workflow {
         .flatten()
 
     audio_jsons = Audio_Metrics(audiofiles).collect()
-    uhmometer_jsons = Uhmometer_Metrics(audiofiles, params.uhmometer).collect()
     text_jsons = Text_Metrics(textfiles).collect()
+
+    all_audio = audiofiles
+        .collect { it.file }
+
+    uhmometer_jsons = Uhmometer_Metrics(all_audio, params.uhmometer)
 
     merge_audio(audio_jsons, params.audio_output)
     merge_text(text_jsons, params.text_output)
