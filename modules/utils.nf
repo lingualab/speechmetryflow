@@ -33,7 +33,7 @@ process merge_jsons {
 
     script:
     """
-    lingualabpy_jsons2csv *.json ${output}
+    lingualabpy_jsons2csv -c filename *.json ${output}
     """
 }
 
