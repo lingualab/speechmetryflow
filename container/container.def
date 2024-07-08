@@ -11,7 +11,7 @@ From: python:3.12.4-slim-bookworm
     apt install -y ffmpeg wget libgtk-3-0 libpulse-dev libasound2
     apt autoremove -y
     pip install lingualabpy==0.0.5
-    pip install https://github.com/lingualab/Text2Variable/archive/refs/tags/0.0.1.zip
+    pip install https://github.com/lingualab/Text2Variable/archive/refs/tags/0.0.2.zip
     python -m spacy download en_core_web_sm
     python -m spacy download en_core_web_lg
     python -m nltk.downloader -d /usr/local/share/nltk_data words
