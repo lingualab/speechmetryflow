@@ -63,7 +63,7 @@ process Text_Metrics {
 
     script:
     """
-    text2variable --pid ${args.participant_id} -d . -o ${args.participant_id}_text_metric.json -l ${args.language} ${args.file} lg
+    text2variable --pid ${args.participant_id} -d . -l ${args.language} ${args.file} lg
     """
 }
 
