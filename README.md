@@ -53,3 +53,5 @@ The pipeline produces 3 csv files:
 - `population_audio_metrics`: metrics compute with `lingualabpy_audio_metrics` from [lingualabpy](https://github.com/lingualab/lingualabpy)
 - `population_uhmometer_metrics`: metrics compute with [uhm-o-meter](https://sites.google.com/view/uhm-o-meter/home)
 - `population_text_metrics`: metrics compute with [Text2Variable](https://github.com/lingualab/Text2Variable)
+
+[Metrics description](https://metayer-pierre-briac.notion.site/Extractions-des-variables-fd2a68ee01044a1d9b0874518e78dd86)
