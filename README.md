@@ -15,13 +15,14 @@ This CSV file must contain at least 3 columns:
 - participant_id is required for the pipeline to find your files. These files must begin by the participant_id. To specify the folder where your files are located, see nextflow.config.
 - language: 2 choices, `en` or `fr`.
 - sex: 2 choices, `male` or `female`.
+- task: 2 choices, `cookie_theft` or `picnic`.
 
 Example:
 
-| participant_id | language |   sex  |
-|:--------------:|:--------:|:------:|
-|   sub-PKM8767  |    en    |  male  |
-|   sub-SBK4467  |    en    | female |
+| participant_id | language |   sex  |     task     |
+|:--------------:|:--------:|:------:|:------------:|
+|   sub-PKM8767  |    en    |  male  | cookie_theft |
+|   sub-SBK4467  |    en    | female |    picnic    |
 
 ### nextflow.config
 
