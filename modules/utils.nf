@@ -22,7 +22,7 @@ process glob_files {
 
 
 process merge_jsons {
-    publishDir './results', mode: 'link'
+    publishDir "./results", mode: "copy"
 
     input:
     file jsons
