@@ -2,7 +2,7 @@
 
 ## Running
 
-`nextflow run lingualab/speechmetryflow -r 0.0.2 --input participant_ids.csv`
+`nextflow run lingualab/speechmetryflow -r 0.0.3 --input participant_ids.csv`
 
 Replace the `-r` option with the release you want to use
 
@@ -10,7 +10,7 @@ Replace the `-r` option with the release you want to use
 
 ### participant_ids.csv
 
-This CSV file must contain at least 3 columns:
+This CSV file must contain at least 4 columns:
 
 - participant_id is required for the pipeline to find your files. These files must begin by the participant_id. To specify the folder where your files are located, see nextflow.config.
 - language: 2 choices, `en` or `fr`.
@@ -33,19 +33,11 @@ params {
     audio_folder = "/data/brambati/dataset/CCNA/derivatives/audio_extract"
     text_folder = "/data/brambati/dataset/CCNA/derivatives/cookie_txt"
 }
-
-process {
-    container = "/data/brambati/local/containers/lingualab/speechmetryflow_0.0.2.sif"
-}
-
-apptainer {
-    runOptions = "-B /data/brambati"
-}
-
-executor {
-    cpus = 20
-}
 ```
+
+And then run:
+
+`nextflow run lingualab/speechmetryflow -r 0.0.3 -profile unf_elm --input participant_ids.csv`
 
 ## output
 
