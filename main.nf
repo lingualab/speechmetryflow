@@ -12,7 +12,7 @@ log.info "Text folder: $params.text_folder"
 
 
 process Audio_Metrics {
-    publishDir = "./results/Audio_Metrics"
+    publishDir "./results/Audio_Metrics", mode: "copy"
 
     input:
     val args
@@ -56,7 +56,7 @@ process Uhmometer_Metrics {
 }
 
 process Text_Metrics {
-    publishDir = "./results/Text_metrics"
+    publishDir "./results/Text_metrics", mode: "copy"
 
     input:
     val args
