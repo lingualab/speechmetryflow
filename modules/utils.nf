@@ -13,7 +13,7 @@ process glob_files {
     exec:
     pid = args.participant_id
     outputs = []
-    files("${folder}/**/${pid}*${extension}").each {
+    files("${folder}/**/${pid}_*${extension}").each {
         out = args.clone()
         out.file = it
         outputs << out
