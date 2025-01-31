@@ -2,7 +2,7 @@
 
 ## Running
 
-`nextflow run lingualab/speechmetryflow -r 0.0.3 --input participant_ids.csv`
+`nextflow run lingualab/speechmetryflow -r 0.0.5 --input participant_ids.csv`
 
 Replace the `-r` option with the release you want to use
 
