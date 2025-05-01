@@ -1,0 +1,19 @@
+### Site metadata ###
+
+site_name: SpeechmetryFlow
+site_description: SpeechmetryFlow Documentation
+site_url: https://lingualab.github.io/speechmetryflow/
+
+repo_url: https://github.com/lingualab/speechmetryflow
+edit_uri: edit/master/docs/docs
+
+### Build settings ###
+
+theme: readthedocs
+
+nav:
+  - Home: index.md
+  - Features:
+    - features-extractions.md
+    - features-fluency.md
+    - features-phonetics.md
