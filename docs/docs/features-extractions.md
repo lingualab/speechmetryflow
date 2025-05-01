@@ -64,7 +64,7 @@ Un réseau de neurones spécial et populaire intervient ici, c'est ce qu'on appe
 
 Dans ce cas de figure, on pourra définir une fonction `h` responsable de la compression et la projection du vecteur du mot `x`. `h` est simplement une multiplication matricielle des poids de la couche d'entrée `W` par le vecteur **one-hot** `X` du mot.
 
-![Untitled](Extractions%20des%20variables%2018ccd6be978b81319e97d13c3affbfb3/Untitled.png)
+![Untitled](img/encoder-decoder.png)
 
 Il existe une famille d'architectures de modèles et d'optimisations qui peuvent être utilisées pour pour déterminer les incorporations d'un groupes de mots à partir de grands ensembles de données. On l'appelle Word2Vec. Deux architectures très populaires appartenant a cette famille sont le **Continuous Bag-of-Words** et le **skip-gram**.
 
@@ -372,7 +372,7 @@ On peut demander à un LLM de reconnaitre dans d’autres langues si ces informa
 | Densité d’idées | Similarité sémantique moyenne entre les idées (conceptuellement distinctes) transmises à l’intérieur d’une fenêtre de mots déplacée à- travers le texte. | Distance cosine (similarité sémantique) moyenne entre toutes les paires de « word embeddings » à l’intérieur d’une fenêtre déplacée à- travers le texte. Les « word embeddings » seront extraits à partir du modèle spaCy « en_core_web_lg » qui a supporté l’identification des dépendances syntaxiques et le Part-of-Speech tagging. À l’intérieur d’une fenêtre, la moyenne de toutes les distances cosines sera calculée. Des fenêtres de 3, 10, 25 et 40 mots avec un incrément de la moitié de la longueur de la fenêtre seront implémentées. | 4 | Une procédure conceptuellement similaire avec une implémentation différente est présentée dans Ivensky, 2019.
 Word embeddings : représentation vectorielle (numérique) d’un mot. Lors de la création de word embeddings, les mots sont représentés dans un espace sémantique. Les mots avec une plus grande similarité sémantique et régulièrement utilisés dans des contextes similaires auront des vecteurs (chiffres) plus près les uns des autres. |  |
 
-![Untitled](Extractions%20des%20variables%2018ccd6be978b81319e97d13c3affbfb3/Untitled%201.png)
+![Untitled](img/content-units-cookie-theft.png)
 
 ## Caractéristiques syntaxiques
 
