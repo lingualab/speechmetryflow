@@ -19,3 +19,4 @@ nav:
     - features-phonetics.md
   - Audio Features:
     - features/audio-parselmouth.md
+    - features/audio-uhmometer.md
