@@ -13,7 +13,9 @@ theme: material
 
 nav:
   - Home: index.md
-  - Features:
+  - Text Features:
     - features-extractions.md
     - features-fluency.md
     - features-phonetics.md
+  - Audio Features:
+    - features/audio-parselmouth.md
