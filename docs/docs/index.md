@@ -43,6 +43,6 @@ And then run:
 
 The pipeline produces 3 csv files:
 
-- `population_audio_metrics`: metrics compute with `lingualabpy_audio_metrics` from [lingualabpy](https://github.com/lingualab/lingualabpy)
+- `population_lingualab_audio`: metrics compute with `lingualabpy_lingualab_audio` from [lingualabpy](https://github.com/lingualab/lingualabpy)
 - `population_uhmometer_metrics`: metrics compute with [uhm-o-meter](https://sites.google.com/view/uhm-o-meter/home)
-- `population_text_metrics`: metrics compute with [Text2Variable](https://github.com/lingualab/Text2Variable)
+- `population_lingualab_text`: metrics compute with [Text2Variable](https://github.com/lingualab/Text2Variable)

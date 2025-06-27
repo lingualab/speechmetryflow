@@ -1,6 +1,6 @@
 # Parselmouth Praat features
 
-The pipeline produces `population_audio_metrics` which is an implementation of [Parselmouth Praat Scripts in Python](https://osf.io/6dwr3/) by [David R. Feinberg](https://osf.io/z2hy6/)
+The pipeline produces `population_lingualab_audio` which is an implementation of [Parselmouth Praat Scripts in Python](https://osf.io/6dwr3/) by [David R. Feinberg](https://osf.io/z2hy6/)
 
 This script will measure pitch, standard deviation of pitch, hnr, jitter, shimmer, and formants in python using parselmouth, a package that runs Praat in python.
 
