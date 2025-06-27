@@ -6,6 +6,7 @@ include { WHISPER } from './modules/local/whisper/main'
 include { LINGUALAB_AUDIO } from './subworkflows/local/lingualab_audio/main'
 include { LINGUALAB_TEXT } from './subworkflows/local/lingualab_text/main'
 include { UHMOMETER } from './modules/local/uhmometer/main'
+include { OPENSMILE } from './modules/local/opensmile/main'
 
 // Header info
 def summary = [:]
@@ -69,6 +70,12 @@ workflow {
     UHMOMETER(
         data.audio.collect { it[1] },
         params.population_dir,
+    )
+
+    OPENSMILE(
+        data.audio.collect { it[1] },
+        params.population_dir,
+        Channel.from(params.opensmile.feature_sets)
     )
 
     LINGUALAB_AUDIO(data.audio)
