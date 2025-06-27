@@ -6,7 +6,7 @@ process UHMOMETER {
 
     output:
     path "*.csv", emit: uhmometer_metric
-    // path "versions.yml", emit: versions
+    path "versions.yml", emit: versions
 
     script:
     """
