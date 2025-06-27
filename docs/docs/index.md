@@ -1,8 +1,10 @@
 # speechmetryflow
 
+Automated nextflow-based workflow designed to extract both audio and text metrics from speech tasks (like picture descriptions) at scale.
+
 ## Running
 
-`nextflow run lingualab/speechmetryflow -r 0.0.5 --input participant_ids.csv`
+`nextflow run lingualab/speechmetryflow -r {last_release_or_tag} --input participant_ids.csv`
 
 Replace the `-r` option with the release you want to use
 
@@ -37,7 +39,7 @@ params {
 
 And then run:
 
-`nextflow run lingualab/speechmetryflow -r 0.0.3 -profile unf_elm --input participant_ids.csv`
+`nextflow run lingualab/speechmetryflow -r {last_release_or_tag} -profile unf_elm --input participant_ids.csv`
 
 ## output
 
