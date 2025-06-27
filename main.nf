@@ -3,11 +3,9 @@
 nextflow.enable.dsl = 2
 
 include { WHISPER } from './modules/local/whisper/main'
-include { LINGUALAB_AUDIO } from './modules/local/lingualab_audio/main'
-include { LINGUALAB_TEXT } from './modules/local/lingualab_text/main'
+include { LINGUALAB_AUDIO } from './subworkflows/local/lingualab_audio/main'
+include { LINGUALAB_TEXT } from './subworkflows/local/lingualab_text/main'
 include { UHMOMETER } from './modules/local/uhmometer/main'
-include { merge_jsons as MERGE_AUDIO } from './modules/local/merge_jsons/main'
-include { merge_jsons as MERGE_TEXT } from './modules/local/merge_jsons/main'
 
 // Header info
 def summary = [:]
@@ -67,21 +65,15 @@ workflow {
     data = get_data()
 
     WHISPER(data.audio)
+
+    UHMOMETER(
+        data.audio.collect { it[1] },
+        params.population_dir,
+    )
+
     LINGUALAB_AUDIO(data.audio)
+
     LINGUALAB_TEXT(data.text.mix(WHISPER.out.transcription))
-
-    UHMOMETER(data.audio.collect { it[1] }, params.population_dir)
-
-    MERGE_AUDIO(
-        LINGUALAB_AUDIO.out.audio_metric.collect { it[1] },
-        params.population_dir,
-        params.audio_output,
-    )
-    MERGE_TEXT(
-        LINGUALAB_TEXT.out.text_metric.collect { it[1] },
-        params.population_dir,
-        params.text_output,
-    )
 }
 
 workflow.onComplete {
