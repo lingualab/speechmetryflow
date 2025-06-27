@@ -1,101 +1,91 @@
 #!/usr/bin/env nextflow
 
-include { glob_files as glob_audiofiles } from './modules/utils'
-include { glob_files as glob_textfiles } from './modules/utils'
-include { merge_jsons as merge_audio } from './modules/utils'
-include { merge_jsons as merge_text } from './modules/utils'
+nextflow.enable.dsl = 2
 
+include { WHISPER } from './modules/local/whisper/main'
+include { LINGUALAB_AUDIO } from './modules/local/lingualab_audio/main'
+include { LINGUALAB_TEXT } from './modules/local/lingualab_text/main'
+include { UHMOMETER } from './modules/local/uhmometer/main'
+include { merge_jsons as MERGE_AUDIO } from './modules/local/merge_jsons/main'
+include { merge_jsons as MERGE_TEXT } from './modules/local/merge_jsons/main'
 
-log.info "Input CSV: $params.input"
-log.info "Audio folder: $params.audio_folder"
-log.info "Text folder: $params.text_folder"
+// Header info
+def summary = [:]
+summary['Pipeline Name']   = workflow.manifest.name
+summary['Version']         = workflow.manifest.version
+summary['Input']           = params.input
+summary['Audio folder']    = params.audio_folder
+summary['Text folder']     = params.text_folder
+summary['Working dir']     = workflow.workDir
+summary['Execution']       = workflow.commandLine
 
+log.info """
+===============================================================================
+${summary.collect { key, value -> "${key.padRight(15)}: $value" }.join("\n")}
+===============================================================================
+"""
 
-process Audio_Metrics {
-    publishDir "./results/Audio_Metrics", mode: "copy"
+workflow get_data {
+    main:
+        // Input validation
+        if (!params.input) {
+            error "Input path not specified!"
+        }
 
-    input:
-    val args
+        // Read participants meta informations
+        participants_meta = Channel
+            .fromPath(params.input)
+            .splitCsv(header: true)
+            .map{ it -> tuple(it.participant_id, it)}
+        
+        // Glob text files
+        text_folder = file(params.text_folder)
+        text_channel = Channel.fromPath("$text_folder/**$params.text_extension")
+            .map{ it -> tuple(it.name.split("_")[0], it)} // Extract participant_id from filename
+            .combine(participants_meta, by: 0) // Keep only participants from participants_meta
+            .map{ participant_id, filename, meta ->
+                def new_meta = meta + [filename: filename.name]
+                tuple(new_meta, filename)
+            }
 
-    output:
-    file "*.json"
+        // Glob audio files
+        audio_folder = file(params.audio_folder)
+        audio_channel = Channel.fromPath("$audio_folder/**$params.audio_extension")
+            .map{ it -> tuple(it.name.split("_")[0], it)} // Extract participant_id from filename
+            .combine(participants_meta, by: 0) // Keep only participants from participants_meta
+            .map{ participant_id, filename, meta ->
+                def new_meta = meta + [filename: filename.name]
+                tuple(new_meta, filename)
+            }
 
-    script:
-    """
-    lingualabpy_audio_metrics --sex ${args.sex} -p ${args.participant_id} ${args.file}
-    """
+    emit:
+        text     = text_channel     // channel: [ val(meta), text_file ]
+        audio    = audio_channel    // channel: [ val(meta), audio_file ]
 }
-
-process Uhmometer_Metrics {
-    publishDir "./results", mode: "copy"
-
-    input:
-    path audiofiles
-    val uhmometer
-
-    output:
-    file "${uhmometer.output}"
-
-    script:
-    """
-    mkdir input fontconfig_cache
-    export XDG_CACHE_HOME="fontconfig_cache"
-    mv *.wav input/
-    praat --run \${PRAAT_SCRIPTS_DIR}/syllablenucleiv3.praat \$(pwd)/input/ \
-        ${uhmometer.preprocessing} \
-        ${uhmometer.silence_threshold} \
-        ${uhmometer.minimum_dip_near_peak} \
-        ${uhmometer.minimum_pause_duration} \
-        ${uhmometer.detect_filled_pauses} \
-        ${uhmometer.language} \
-        ${uhmometer.filled_pause_threshold} \
-        "Praat Info window" \
-        ${uhmometer.data_collection_type} \
-        ${uhmometer.keep_objects} > ${uhmometer.output}
-    """
-}
-
-process Text_Metrics {
-    publishDir "./results/Text_metrics", mode: "copy"
-
-    input:
-    val args
-
-    output:
-    file "*.json"
-
-    script:
-    """
-    text2variable --pid ${args.participant_id} -d . -t ${args.task} -l ${args.language} ${args.file} lg
-    """
-}
-
 
 workflow {
-    participants_args = channel
-        .fromPath(params.input)
-        .splitCsv(header: true)
+    data = get_data()
 
-    audiofiles = glob_audiofiles(
-        participants_args,
-        params.audio_folder,
-        params.audio_extension)
-        .flatten()
+    WHISPER(data.audio)
+    LINGUALAB_AUDIO(data.audio)
+    LINGUALAB_TEXT(data.text.mix(WHISPER.out.transcription))
 
-    textfiles = glob_textfiles(
-        participants_args,
-        params.text_folder,
-        params.text_extension)
-        .flatten()
+    UHMOMETER(data.audio.collect { it[1] }, params.population_dir)
 
-    audio_jsons = Audio_Metrics(audiofiles).collect()
-    text_jsons = Text_Metrics(textfiles).collect()
-
-    all_audio = audiofiles
-        .collect { it.file }
-
-    uhmometer_jsons = Uhmometer_Metrics(all_audio, params.uhmometer)
-
-    merge_audio(audio_jsons, params.audio_output)
-    merge_text(text_jsons, params.text_output)
+    MERGE_AUDIO(
+        LINGUALAB_AUDIO.out.audio_metric.collect { it[1] },
+        params.population_dir,
+        params.audio_output,
+    )
+    MERGE_TEXT(
+        LINGUALAB_TEXT.out.text_metric.collect { it[1] },
+        params.population_dir,
+        params.text_output,
+    )
 }
+
+workflow.onComplete {
+    log.info "Pipeline completed at: $workflow.complete"
+    log.info "Execution status: ${ workflow.success ? 'OK' : 'failed' }"
+    log.info "Execution duration: $workflow.duration"
+} 
