@@ -43,8 +43,9 @@ And then run:
 
 ## output
 
-The pipeline produces 3 csv files:
+The pipeline produces csv files in `results/Statistics` directory:
 
-- `population_lingualab_audio`: metrics compute with `lingualabpy_lingualab_audio` from [lingualabpy](https://github.com/lingualab/lingualabpy)
-- `population_uhmometer_metrics`: metrics compute with [uhm-o-meter](https://sites.google.com/view/uhm-o-meter/home)
-- `population_lingualab_text`: metrics compute with [Text2Variable](https://github.com/lingualab/Text2Variable)
+- `population_lingualab_audio.csv`: metrics compute with `lingualabpy_lingualab_audio` from [lingualabpy](https://github.com/lingualab/lingualabpy)
+- `population_uhmometer_metrics.csv`: metrics compute with [uhm-o-meter](https://sites.google.com/view/uhm-o-meter/home)
+- `population_lingualab_text.csv`: metrics compute with [Text2Variable](https://github.com/lingualab/Text2Variable)
+- `population_opensmile_metrics_{feature_set}.csv`: metrics compute with [opensmile](https://audeering.github.io/opensmile-python/)
