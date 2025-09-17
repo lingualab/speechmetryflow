@@ -9,12 +9,29 @@ edit_uri: edit/master/docs/docs
 
 ### Build settings ###
 
-theme: material
+theme:
+  name: material
+  palette:
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
 
 nav:
   - Home: index.md
   - Text Features:
-    - features-extractions.md
+    - lingualab-text-production.md
+    - lingualab-text-lexical.md
+    - lingualab-text-semantic.md
+    - lingualab-text-syntaxic.md
+    - lingualab-text-pragmatic.md
     - features-fluency.md
     - features-phonetics.md
   - Audio Features:
