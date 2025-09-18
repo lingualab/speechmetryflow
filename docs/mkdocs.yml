@@ -32,8 +32,15 @@ nav:
     - lingualab-text-semantic.md
     - lingualab-text-syntaxic.md
     - lingualab-text-pragmatic.md
-    - features-fluency.md
-    - features-phonetics.md
   - Audio Features:
+    - lingualab-audio-phonetics.md
     - features/audio-parselmouth.md
     - features/audio-uhmometer.md
+  - Text Features (en):
+    - en/lingualab-text-production.md
+    - en/lingualab-text-lexical.md
+    - en/lingualab-text-semantic.md
+    - en/lingualab-text-syntaxic.md
+    - en/lingualab-text-pragmatic.md
+  - Audio Features (en):
+    - en/lingualab-audio-phonetics.md
