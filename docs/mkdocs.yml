@@ -32,6 +32,6 @@ nav:
     - en/lingualab-text-syntaxic.md
     - en/lingualab-text-pragmatic.md
   - Audio Features:
-    - en/lingualab-audio-phonetic.md
     - en/parselmouth-audio.md
+    - en/opensmile-audio.md
     - en/uhmometer-audio.md
