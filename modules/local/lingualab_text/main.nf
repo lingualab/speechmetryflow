@@ -5,12 +5,13 @@ process LINGUALAB_TEXT {
     tuple val(meta), path(text_file)
 
     output:
-    tuple val(meta), path("*.json"), emit: text_metric
+    tuple val(meta), path("*_metrics-speechmetryflow.json"), emit: text_metric_smf
+    tuple val(meta), path("*_metrics-textdescriptives.json"), emit: text_metric_td
     path "versions.yml", emit: versions
 
     script:
     """
-    text2variable --pid ${meta.participant_id} -d . -t ${meta.task} -l ${meta.language} ${text_file} lg
+    smf_extract --lang ${meta.language} --task ${meta.task}  ${text_file}
     touch versions.yml
     """
 
