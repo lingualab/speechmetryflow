@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: python:3.13.5-slim-bookworm
+
+%files
+    env.txt
+
+%post
+    # opensmile dependencies
+    apt update
+    apt install -y procps
+
+    # opensmile installation
+    . /env.txt
+    pip install --root-user-action=ignore opensmile==${APP_VERSION}
+
+    # cleaning
+    rm env.txt
