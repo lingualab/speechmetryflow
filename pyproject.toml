@@ -1,0 +1,52 @@
+[build-system]
+requires = ['hatchling', 'hatch-vcs']
+build-backend = 'hatchling.build'
+
+[project]
+name = 'speechmetryflow'
+description = 'Python module to extract text metrics for speechmetryflow pipeline'
+readme = 'README.md'
+license = { file ='LICENSE' }
+authors = [
+    {name = 'Christophe Bedetti', email = 'christophe.bedetti@umontreal.ca'},
+    {name = 'Pierre-Briac Métayer-Mariotti', email = 'pierre-briac.metayer--mariotti@umontreal.ca'},
+]
+keywords = ['science', 'research', 'data-analysis', 'reproducibility']
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: 3.14',
+    'Topic :: Scientific/Engineering',
+]
+requires-python = '>=3.10'
+dynamic = ['version']
+dependencies = [
+  'click',
+  'importlib_resources',
+  'nltk',
+  'textdescriptives',
+  'transformers[torch]',
+  'protobuf',
+  'sentencepiece',
+]
+
+[project.scripts]
+smf_extract = 'speechmetryflow.cli:extract'
+smf_download = 'speechmetryflow.cli:download'
+
+[tool.hatch.version]
+source = 'vcs'
+
+[tool.hatch.build.hooks.vcs]
+version-file = 'src/speechmetryflow/_version.py'
+
+[tool.hatch.build.targets.sdist]
+ignore-vcs = true
+only-include = ['src']
