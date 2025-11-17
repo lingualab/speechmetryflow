@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: debian:bookworm-20250610-slim
+
+%files
+    ./praat_scripts/FilledPauses.praat /usr/local/share/praat/FilledPauses.praat
+    ./praat_scripts/syllablenucleiv3.praat /usr/local/share/praat/syllablenucleiv3.praat
+    env.txt
+
+%post
+    # OS dependencies
+    apt update
+    apt install -y wget
+
+    # Downloading Praat
+    . /env.txt
+    PRAAT_URL="https://github.com/praat/praat/releases/download/${APP_VERSION}"
+    PRAAT_NUM=$(echo "${APP_VERSION}" | tr -cd '0-9')
+    PRAAT_FILE="praat${PRAAT_NUM}_linux-intel64.tar.gz"
+    wget ${PRAAT_URL}/${PRAAT_FILE}
+
+    # Praat dependencies (https://praat.org/download_linux.html)
+    apt install -y libc++1 libgtk-3-0 libpulse0 libasound2 libjack0
+
+    # Praat installation
+    tar zxf ${PRAAT_FILE} -C /usr/bin
+
+    # cleaning
+    rm ${PRAAT_FILE} env.txt
+    apt remove -y wget
+    apt autoremove -y
+
+%environment
+    export PRAAT_SCRIPTS_DIR="/usr/local/share/praat"
