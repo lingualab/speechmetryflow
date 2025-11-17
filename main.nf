@@ -5,7 +5,7 @@ nextflow.enable.dsl = 2
 include { WHISPER } from './modules/local/whisper/main'
 include { LINGUALAB_AUDIO } from './subworkflows/local/lingualab_audio/main'
 include { LINGUALAB_TEXT } from './subworkflows/local/lingualab_text/main'
-include { UHMOMETER } from './modules/local/uhmometer/main'
+include { UHMOMETER } from './subworkflows/local/uhmometer/main'
 include { OPENSMILE } from './modules/local/opensmile/main'
 
 // Header info
@@ -67,10 +67,7 @@ workflow {
 
     WHISPER(data.audio)
 
-    UHMOMETER(
-        data.audio.collect { it[1] },
-        params.population_dir,
-    )
+    UHMOMETER(data.audio)
 
     OPENSMILE(
         data.audio.collect { it[1] },

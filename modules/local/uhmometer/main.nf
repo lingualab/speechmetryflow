@@ -1,11 +1,11 @@
 process UHMOMETER {
+    tag "$meta.filename"
 
     input:
-    path audio_files
-    val meta
+    tuple val(meta), path(text_file)
 
     output:
-    path "*.csv", emit: uhmometer_metric
+    tuple val(meta), path("*.csv"), emit: audio_metric_uhmometer
     path "versions.yml", emit: versions
 
     script:
@@ -23,7 +23,7 @@ process UHMOMETER {
         ${params.uhmometer.filled_pause_threshold} \
         "Praat Info window" \
         ${params.uhmometer.data_collection_type} \
-        ${params.uhmometer.keep_objects} > ${params.uhmometer.output}
+        ${params.uhmometer.keep_objects} > ${text_file}.csv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -32,7 +32,7 @@ process UHMOMETER {
     """
 
     stub:
-    def prefix = "${params.uhmometer.output}"
+    def prefix = "${text_file}.csv"
 
     """
     touch ${prefix}
