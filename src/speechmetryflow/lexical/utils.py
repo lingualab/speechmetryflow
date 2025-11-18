@@ -84,7 +84,7 @@ def compute_honore_r_stat(stems):
         return
     
     N, n_different, n_unique, _ = compute_counts(stems)
-    return (100 * math.log(N)) / (1 - (n_unique / n_different))
+    return (100 * math.log(N)) / (1 - (n_unique / n_different)) if N else None
 
 def compute_brunet_index(stems):
     """
@@ -109,4 +109,4 @@ def compute_brunet_index(stems):
     
     N, n_different, _, _ = compute_counts(stems)
 
-    return math.pow(N, math.pow(n_different, -0.165))
+    return math.pow(N, math.pow(n_different, -0.165)) if N else None

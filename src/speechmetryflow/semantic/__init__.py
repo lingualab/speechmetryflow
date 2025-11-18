@@ -15,7 +15,7 @@ def metrics(text, tokens, lang, task, n_tokens):
     else:
         metrics.update(icu_data)
         n_icu_true = sum(icu_data.values())
-        icu_efficacity = n_tokens / n_icu_true
+        icu_efficacity = n_tokens / n_icu_true if n_icu_true else None
 
     metrics['n_icu_true'] = n_icu_true
     metrics['icu_efficacity'] = icu_efficacity

@@ -148,7 +148,7 @@ def nominal_sentences_stats(doc) -> Dict[str, Any]:
     nominal_sentences = [chunk for chunk in doc.noun_chunks]
     n_nominal_sentences = len(nominal_sentences)
     length_nominal_sentences = sum(len(chunk) for chunk in nominal_sentences)
-    mean_length_nominal_sentence = length_nominal_sentences / n_nominal_sentences
+    mean_length_nominal_sentence = length_nominal_sentences / n_nominal_sentences if n_nominal_sentences else None
     return {
         "n_nominal_sentences": n_nominal_sentences,
         "mean_length_nominal_sentence": mean_length_nominal_sentence,
