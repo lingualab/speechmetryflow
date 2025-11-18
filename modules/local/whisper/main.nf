@@ -12,17 +12,24 @@ process WHISPER {
 
     script:
     """
+    mkdir mplconfigdir
+    export MPLCONFIGDIR="mplconfigdir"
+
     # Run Whisper transcription
-    whisper "$audio_file" \\
+    whisperx "$audio_file" \\
         --model ${params.whisper_model} \\
+        --model_cache_only True \\
+        --model_dir ${params.whisper_model_dir} \\
+        --device cpu \\
+        --compute_type int8 \\
         --language ${meta.language} \\
         --output_dir . \\
-        --output_format all \\
-        --model_dir ${params.whisper_model_dir}
+        --output_format txt
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        whisper: \$(/app/.venv/bin/pip list | grep openai-whisper | tr -s ' ' | cut -d' ' -f2)
+        faster-whisper: \$(pip list | grep faster-whisper | tr -s ' ' | cut -d' ' -f2)
+        whisperx: \$(pip list | grep whisperx | tr -s ' ' | cut -d' ' -f2)
         model_dir: ${params.whisper_model_dir}
         model: ${params.whisper_model}
         language: ${meta.language}
