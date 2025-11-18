@@ -5,13 +5,13 @@ From: python:3.13.5-slim-bookworm
     env.txt
 
 %post
-    # opensmile dependencies
+    # OS dependencies
     apt update
     apt install -y procps
 
     # opensmile installation
     . /env.txt
-    pip install --root-user-action=ignore opensmile==${APP_VERSION}
+    pip install --root-user-action=ignore ${APP_NAME}==${APP_VERSION}
 
     # cleaning
     rm env.txt
