@@ -1,0 +1,57 @@
+Bootstrap: docker
+From: python:3.13.5-slim-bookworm
+
+%files
+    env.txt
+
+%post
+    # cache folders setup
+    export FASTER_WHISPER_CACHE="/usr/local/share/faster-whisper"
+    mkdir ${FASTER_WHISPER_CACHE}
+    export TORCH_HOME="/usr/local/share/torch"
+    mkdir ${TORCH_HOME}
+    export NLTK_CACHE="/usr/local/share/nltk_data"
+    mkdir ${NLTK_CACHE}
+
+    # OS dependencies
+    apt update
+    apt install -y ffmpeg procps
+
+    # whisper installation
+    . /env.txt
+
+    # torch cpu: https://pytorch.org/get-started/previous-versions/
+    pip install --root-user-action=ignore torch~=2.8.0 torchaudio~=2.8.0 --index-url https://download.pytorch.org/whl/cpu
+    pip install --root-user-action=ignore ${APP_NAME}==${APP_VERSION}
+
+    # caching data
+    python -m nltk.downloader punkt_tab
+
+    audio_file="/usr/local/lib/python3.13/site-packages/pyannote/audio/sample/sample.wav"
+    mkdir tmp_whisperx_en
+    mkdir tmp_whisperx_fr
+
+    whisperx $audio_file \
+        --model large-v3 \
+        --model_dir ${FASTER_WHISPER_CACHE} \
+        --device cpu \
+        --compute_type int8 \
+        --language en \
+        --output_dir tmp_whisperx_en \
+        --output_format all
+
+    whisperx $audio_file \
+        --model large-v3 \
+        --model_dir ${FASTER_WHISPER_CACHE} \
+        --device cpu \
+        --compute_type int8 \
+        --language fr \
+        --output_dir tmp_whisperx_fr \
+        --output_format all
+
+    # cleaning
+    rm -Rf env.txt tmp_whisperx_en tmp_whisperx_fr
+
+%environment
+    export FASTER_WHISPER_CACHE="/usr/local/share/faster-whisper"
+    export TORCH_HOME="/usr/local/share/torch"
