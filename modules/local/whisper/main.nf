@@ -24,7 +24,7 @@ process WHISPER {
         --compute_type int8 \\
         --language ${meta.language} \\
         --output_dir . \\
-        --output_format txt
+        --output_format all
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
