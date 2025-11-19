@@ -47,6 +47,10 @@ source = 'vcs'
 [tool.hatch.build.hooks.vcs]
 version-file = 'src/speechmetryflow/_version.py'
 
-[tool.hatch.build.targets.sdist]
+[tool.hatch.build]
 ignore-vcs = true
-only-include = ['src']
+packages = ['src/speechmetryflow']
+include = [
+  'src/speechmetryflow/**/*.csv',
+  'src/speechmetryflow/**/*.json',
+]
