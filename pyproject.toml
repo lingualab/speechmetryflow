@@ -37,6 +37,11 @@ dependencies = [
   'sentencepiece',
 ]
 
+[project.urls]
+Documentation = "https://lingualab.github.io/speechmetryflow/"
+Issues = "https://github.com/lingualab/speechmetryflow/issues"
+Source = "https://github.com/lingualab/speechmetryflow"
+
 [project.scripts]
 smf_extract = 'speechmetryflow.cli:extract'
 smf_download = 'speechmetryflow.cli:download'
