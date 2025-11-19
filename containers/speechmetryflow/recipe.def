@@ -1,0 +1,30 @@
+Bootstrap: docker
+From: python:3.12.4-slim-bookworm
+
+%files
+    env.txt
+
+%post
+    # cache folders setup
+    export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface"
+    export NLTK_CACHE="/usr/local/share/nltk_data"
+    mkdir ${NLTK_CACHE}
+    
+    # OS dependencies
+    apt update
+    apt install -y procps
+
+    # speechmetryflow install
+    . /env.txt
+
+    # torch cpu: https://pytorch.org/get-started/previous-versions/
+    pip install --root-user-action=ignore torch~=2.9.0 --index-url https://download.pytorch.org/whl/cpu
+    pip install --root-user-action=ignore ${APP_NAME}==${APP_VERSION}
+    smf_download
+
+    # cleaning
+    rm env.txt
+
+%environment
+    export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface"
+    export NLTK_CACHE="/usr/local/share/nltk_data"
