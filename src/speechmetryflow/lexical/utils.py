@@ -27,24 +27,29 @@ def count_deictic_pronouns(tokens, lang):
             "prop_deictic_pronouns_personal": None,
             "prop_deictic_pronouns_temporal": None,
             "prop_deictic_pronouns_total": None,
-            }
-    
+        }
+
     len_text = len(tokens)
     n_spatial = sum(token in deictic_pronouns_data["spatial"] for token in tokens)
     n_personal = sum(token in deictic_pronouns_data["personal"] for token in tokens)
     n_temporal = sum(token in deictic_pronouns_data["temporal"] for token in tokens)
     n_total = n_spatial + n_personal + n_temporal
-    
+
     return {
-            "n_deictic_pronouns_spatial": n_spatial,
-            "n_deictic_pronouns_personal": n_personal,
-            "n_deictic_pronouns_temporal": n_temporal,
-            "n_deictic_pronouns_total": n_total,
-            "prop_deictic_pronouns_spatial": n_spatial / len_text if len_text > 0 else None,
-            "prop_deictic_pronouns_personal": n_personal / len_text if len_text > 0 else None,
-            "prop_deictic_pronouns_temporal": n_temporal / len_text if len_text > 0 else None,
-            "prop_deictic_pronouns_total": n_total / len_text if len_text > 0 else None,
-            }
+        "n_deictic_pronouns_spatial": n_spatial,
+        "n_deictic_pronouns_personal": n_personal,
+        "n_deictic_pronouns_temporal": n_temporal,
+        "n_deictic_pronouns_total": n_total,
+        "prop_deictic_pronouns_spatial": n_spatial / len_text if len_text > 0 else None,
+        "prop_deictic_pronouns_personal": (
+            n_personal / len_text if len_text > 0 else None
+        ),
+        "prop_deictic_pronouns_temporal": (
+            n_temporal / len_text if len_text > 0 else None
+        ),
+        "prop_deictic_pronouns_total": n_total / len_text if len_text > 0 else None,
+    }
+
 
 def count_indefinite_terms(tokens, lang):
     """
@@ -61,13 +66,14 @@ def count_indefinite_terms(tokens, lang):
 
     if indefinite_terms_data is None:
         return
-    
+
     len_text = len(tokens)
     num = sum(token in indefinite_terms_data for token in tokens)
     return {
-        'n_indefinite_terms': num,
-        'prop_indefinite_terms': num / len_text if len_text > 0 else None,
+        "n_indefinite_terms": num,
+        "prop_indefinite_terms": num / len_text if len_text > 0 else None,
     }
+
 
 def compute_honore_r_stat(stems):
     """
@@ -82,9 +88,10 @@ def compute_honore_r_stat(stems):
     """
     if stems is None:
         return
-    
+
     N, n_different, n_unique, _ = compute_counts(stems)
     return (100 * math.log(N)) / (1 - (n_unique / n_different)) if N else None
+
 
 def compute_brunet_index(stems):
     """
@@ -106,7 +113,7 @@ def compute_brunet_index(stems):
     """
     if stems is None:
         return
-    
+
     N, n_different, _, _ = compute_counts(stems)
 
     return math.pow(N, math.pow(n_different, -0.165)) if N else None

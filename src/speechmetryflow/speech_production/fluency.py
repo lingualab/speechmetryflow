@@ -1,5 +1,6 @@
 from speechmetryflow.speech_production.assets import filled_pauses
 
+
 def count_silent_pauses(text, lang=None, pause_marker=None):
     """
     Counts the total number of occurrences of "<pause_marker>" in the text, according to the specified language.
@@ -13,13 +14,14 @@ def count_silent_pauses(text, lang=None, pause_marker=None):
     int: The number of occurrences of silent pauses.
     """
     if pause_marker is None:
-        pause_markers = {'en': '[break]', 'fr':'[pause]'}
+        pause_markers = {"en": "[break]", "fr": "[pause]"}
         pause_marker = pause_markers.get(lang)
 
     if pause_marker is None:
         return
 
     return text.count(pause_marker)
+
 
 def count_filled_pauses(text, lang):
     """

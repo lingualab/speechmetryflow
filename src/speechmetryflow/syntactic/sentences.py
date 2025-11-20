@@ -1,4 +1,3 @@
-
 from typing import Iterable, Dict, Any, Union
 import spacy
 
@@ -6,7 +5,6 @@ from speechmetryflow.syntactic.assets import coordinating_conjunctions
 
 
 class Sentences:
-
     def __init__(self, doc, lang):
         self.doc = doc
         self.lang = lang
@@ -16,7 +14,7 @@ class Sentences:
 
     def _compute_metrics(self):
         # average sentence length in the text
-        self.metrics['mean_length_sentence'] = self.len_doc / len(list(self.doc.sents))
+        self.metrics["mean_length_sentence"] = self.len_doc / len(list(self.doc.sents))
 
         # Count type of sentences
         incomplete = 0
@@ -28,16 +26,16 @@ class Sentences:
             prepositional += is_prepositional(sentence)
             verbal += is_verbal(sentence)
             conjunctions += is_conjunctions(sentence, self.lang)
-        self.metrics['n_incomplete_sentences'] = incomplete
-        self.metrics['n_prepositional_sentences'] = prepositional
-        self.metrics['n_verbal_sentences'] = verbal
+        self.metrics["n_incomplete_sentences"] = incomplete
+        self.metrics["n_prepositional_sentences"] = prepositional
+        self.metrics["n_verbal_sentences"] = verbal
 
         if self.lang in coordinating_conjunctions.keys():
-            self.metrics['n_conjunctions_sentences'] = conjunctions
-            self.metrics['prop_conjunctions_sentences'] = conjunctions / self.len_doc
+            self.metrics["n_conjunctions_sentences"] = conjunctions
+            self.metrics["prop_conjunctions_sentences"] = conjunctions / self.len_doc
         else:
-            self.metrics['n_conjunctions_sentences'] = None
-            self.metrics['prop_conjunctions_sentences'] = None
+            self.metrics["n_conjunctions_sentences"] = None
+            self.metrics["prop_conjunctions_sentences"] = None
 
 
 def is_incomplete(sentence: Iterable[spacy.tokens.Token]) -> bool:
@@ -61,9 +59,10 @@ def is_incomplete(sentence: Iterable[spacy.tokens.Token]) -> bool:
     """
     sent_pos = [token.pos_ for token in sentence]
     sent_dep = [token.dep_ for token in sentence]
-    has_subject = 'nsubj' in sent_dep or 'csubj' in sent_dep
-    has_verb = 'VERB' in sent_pos
+    has_subject = "nsubj" in sent_dep or "csubj" in sent_dep
+    has_verb = "VERB" in sent_pos
     return not (has_verb and has_subject)
+
 
 def is_prepositional(sentence: Iterable[spacy.tokens.Token]) -> bool:
     """
@@ -87,10 +86,11 @@ def is_prepositional(sentence: Iterable[spacy.tokens.Token]) -> bool:
         (a preposition with an object), False otherwise.
     """
     for token in sentence:
-        if token.pos_ == 'ADP':  # 'ADP' is the POS tag for prepositions in spacy
+        if token.pos_ == "ADP":  # 'ADP' is the POS tag for prepositions in spacy
             # Check if the preposition has an object as a dependent
             return any(child.dep_ in ["pobj", "dobj"] for child in token.children)
     return False
+
 
 def is_verbal(sentence: Iterable[spacy.tokens.Token]) -> bool:
     """
@@ -110,7 +110,8 @@ def is_verbal(sentence: Iterable[spacy.tokens.Token]) -> bool:
     bool
         True if the sentence contains at least one verb, False otherwise.
     """
-    return any(token.pos_ == 'VERB' for token in sentence)
+    return any(token.pos_ == "VERB" for token in sentence)
+
 
 def is_conjunctions(sentence: Iterable[spacy.tokens.Token], lang: str) -> bool:
     """
@@ -132,28 +133,32 @@ def is_conjunctions(sentence: Iterable[spacy.tokens.Token], lang: str) -> bool:
     conjunctions = coordinating_conjunctions.get(lang, set())
     return any(token.lower_ in conjunctions for token in sentence)
 
+
 def nominal_sentences_stats(doc) -> Dict[str, Any]:
     """
     Compute statistics about nominal sentences (noun chunks).
 
     Returns
     -------
-        - "n_nominal_sentences": int  
+        - "n_nominal_sentences": int
         Number of nominal sentences (noun chunks)
-        - "mean_length_nominal_sentence": float  
+        - "mean_length_nominal_sentence": float
         Average number of tokens per nominal sentence
-        - "prop_nominal_sentences": float  
+        - "prop_nominal_sentences": float
         Proportion of nominal sentences relative to the document length
     """
     nominal_sentences = [chunk for chunk in doc.noun_chunks]
     n_nominal_sentences = len(nominal_sentences)
     length_nominal_sentences = sum(len(chunk) for chunk in nominal_sentences)
-    mean_length_nominal_sentence = length_nominal_sentences / n_nominal_sentences if n_nominal_sentences else None
+    mean_length_nominal_sentence = (
+        length_nominal_sentences / n_nominal_sentences if n_nominal_sentences else None
+    )
     return {
         "n_nominal_sentences": n_nominal_sentences,
         "mean_length_nominal_sentence": mean_length_nominal_sentence,
-        "prop_nominal_sentences": n_nominal_sentences / len(doc)
+        "prop_nominal_sentences": n_nominal_sentences / len(doc),
     }
+
 
 def clauses_per_sentence(doc: spacy.tokens.Doc) -> Union[float, None]:
     """

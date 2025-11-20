@@ -1,11 +1,11 @@
-''''''
+""""""
 
 import re
 from nltk.stem import SnowballStemmer
 
 
 def general_cleaning(raw_text: str) -> str:
-    '''
+    """
     Cleans up text by performing several cleaning operations
 
     Args:
@@ -13,7 +13,7 @@ def general_cleaning(raw_text: str) -> str:
 
     Returns:
     str: Cleaned up text
-    '''
+    """
     # Removes content between square brackets ([...])
     text = re.sub(r"\[.*?\]", "", raw_text)
 
@@ -28,6 +28,7 @@ def general_cleaning(raw_text: str) -> str:
 
     return text
 
+
 def compute_stemming(tokens, lang):
     """
     Stemming with Snowball
@@ -40,13 +41,13 @@ def compute_stemming(tokens, lang):
     Returns:
         list(str): stems from SnowballStemmer.
     """
-    if lang == 'en':
-        stemmer = SnowballStemmer('english')
+    if lang == "en":
+        stemmer = SnowballStemmer("english")
 
-    elif lang == 'fr':
-        stemmer = SnowballStemmer('french')
+    elif lang == "fr":
+        stemmer = SnowballStemmer("french")
 
     else:
         return
-    
+
     return list(map(stemmer.stem, tokens))

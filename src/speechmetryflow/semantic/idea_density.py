@@ -1,4 +1,3 @@
-
 import itertools
 import numpy as np
 import torch
@@ -45,7 +44,7 @@ def compute_idea_density(tokens, window_shapes):
 
     results = {}
     for window_shape in window_shapes:
-        results_key = f'idea_density_{window_shape}'
+        results_key = f"idea_density_{window_shape}"
 
         try:
             # Generate sliding windows of token indices
@@ -75,5 +74,5 @@ def compute_idea_density(tokens, window_shapes):
 
         # Mean similarity across all windows of this shape
         results[results_key] = np.mean(similarities)
-    
+
     return results

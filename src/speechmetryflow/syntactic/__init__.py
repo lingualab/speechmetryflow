@@ -1,10 +1,13 @@
-
 from typing import Dict, Union
 import spacy
 
 
 from speechmetryflow.syntactic.dependency import Dependency
-from speechmetryflow.syntactic.sentences import Sentences, nominal_sentences_stats, clauses_per_sentence
+from speechmetryflow.syntactic.sentences import (
+    Sentences,
+    nominal_sentences_stats,
+    clauses_per_sentence,
+)
 
 
 def count_verb_tenses(doc: spacy.tokens.Doc, lang: str) -> Dict[str, float | None]:
@@ -30,23 +33,23 @@ def count_verb_tenses(doc: spacy.tokens.Doc, lang: str) -> Dict[str, float | Non
     -------
     dict
         A dictionary containing the following keys:
-        - "n_present_verb": int or None  
+        - "n_present_verb": int or None
           Number of verbs in the present tense.
-        - "prop_present_verb": float or None  
+        - "prop_present_verb": float or None
           Proportion of present-tense verbs relative to document length.
-        - "n_past_verb": int or None  
+        - "n_past_verb": int or None
           Number of verbs in the past tense.
-        - "prop_past_verb": float or None  
+        - "prop_past_verb": float or None
           Proportion of past-tense verbs relative to document length.
     """
-    if lang != 'en':
+    if lang != "en":
         empty_results = {}
         for tense in ["present", "past"]:
-            empty_results[f'n_{tense}_verb'] = None
-            empty_results[f'prop_{tense}_verb'] = None
+            empty_results[f"n_{tense}_verb"] = None
+            empty_results[f"prop_{tense}_verb"] = None
         return empty_results
-    
-    verbs = [token for token in doc if token.pos_ == 'VERB']
+
+    verbs = [token for token in doc if token.pos_ == "VERB"]
 
     tenses = {
         "present": 0,
@@ -54,16 +57,20 @@ def count_verb_tenses(doc: spacy.tokens.Doc, lang: str) -> Dict[str, float | Non
     }
 
     for verb in verbs:
-        if verb.tag_ in ["VBP", "VBZ", "VBG"]:  # Typical tags for the present tense in English
+        if verb.tag_ in [
+            "VBP",
+            "VBZ",
+            "VBG",
+        ]:  # Typical tags for the present tense in English
             tenses["present"] += 1
         elif verb.tag_ in ["VBD", "VBN"]:  # Typical tags for the past tense in English
             tenses["past"] += 1
         # Note: the future tense in English is often marked by auxiliary verbs and does not have a specific tag.
-        
+
     results = {}
     for tense, count in tenses.items():
-        results[f'n_{tense}_verb'] = count
-        results[f'prop_{tense}_verb'] = count / len(doc)
+        results[f"n_{tense}_verb"] = count
+        results[f"prop_{tense}_verb"] = count / len(doc)
 
     return results
 
@@ -105,6 +112,8 @@ def metrics(doc, lang):
     metrics.update(Sentences(doc, lang).metrics)
     metrics.update(nominal_sentences_stats(doc))
     metrics.update(count_verb_tenses(doc, lang))
-    metrics['clauses_per_sentence'] = clauses_per_sentence(doc)
-    metrics['nouns_with_determiners_proportion'] = nouns_with_determiners_proportion(doc)
+    metrics["clauses_per_sentence"] = clauses_per_sentence(doc)
+    metrics["nouns_with_determiners_proportion"] = nouns_with_determiners_proportion(
+        doc
+    )
     return metrics
