@@ -1,7 +1,5 @@
 *.sif
 _version.py
-src/speechmetryflow/**/*.json
-src/speechmetryflow/**/*.tsv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

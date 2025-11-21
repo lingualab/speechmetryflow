@@ -58,9 +58,4 @@ source = "vcs"
 version-file = "src/speechmetryflow/_version.py"
 
 [tool.hatch.build]
-ignore-vcs = true
 packages = ["src/speechmetryflow"]
-include = [
-  "src/speechmetryflow/**/*.csv",
-  "src/speechmetryflow/**/*.json",
-]
