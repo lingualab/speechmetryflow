@@ -1,10 +1,10 @@
 Bootstrap: docker
 From: python:3.13.5-slim-bookworm
 
-%files
-    env.txt
-
 %post
+    export PIP_ROOT_USER_ACTION=ignore
+    export PIP_DISABLE_PIP_VERSION_CHECK=1
+
     # cache folders setup
     export FASTER_WHISPER_CACHE="/usr/local/share/faster-whisper"
     mkdir ${FASTER_WHISPER_CACHE}
@@ -18,11 +18,12 @@ From: python:3.13.5-slim-bookworm
     apt install -y ffmpeg procps
 
     # whisper installation
-    . /env.txt
-
-    # torch cpu: https://pytorch.org/get-started/previous-versions/
-    pip install --root-user-action=ignore torch~=2.8.0 torchaudio~=2.8.0 --index-url https://download.pytorch.org/whl/cpu
-    pip install --root-user-action=ignore ${APP_NAME}==${APP_VERSION}
+    if [ "{{DEVICE}}" = "cpu" ]
+    then
+        # torch cpu: https://pytorch.org/get-started/previous-versions/
+        pip install torch~=2.8.0 torchaudio~=2.8.0 --index-url https://download.pytorch.org/whl/cpu
+    fi
+    pip install {{APP_NAME}}=={{APP_VERSION}}
 
     # caching data
     python -m nltk.downloader punkt_tab
@@ -50,7 +51,7 @@ From: python:3.13.5-slim-bookworm
         --output_format all
 
     # cleaning
-    rm -Rf env.txt tmp_whisperx_en tmp_whisperx_fr
+    rm -Rf tmp_whisperx_en tmp_whisperx_fr
 
 %environment
     export FASTER_WHISPER_CACHE="/usr/local/share/faster-whisper"

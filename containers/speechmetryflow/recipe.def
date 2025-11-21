@@ -1,10 +1,10 @@
 Bootstrap: docker
 From: python:3.12.4-slim-bookworm
 
-%files
-    env.txt
-
 %post
+    export PIP_ROOT_USER_ACTION=ignore
+    export PIP_DISABLE_PIP_VERSION_CHECK=1
+
     # cache folders setup
     export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface"
     export NLTK_CACHE="/usr/local/share/nltk_data"
@@ -15,15 +15,13 @@ From: python:3.12.4-slim-bookworm
     apt install -y procps
 
     # speechmetryflow install
-    . /env.txt
-
-    # torch cpu: https://pytorch.org/get-started/previous-versions/
-    pip install --root-user-action=ignore torch~=2.9.0 --index-url https://download.pytorch.org/whl/cpu
-    pip install --root-user-action=ignore ${APP_NAME}==${APP_VERSION}
+    if [ "{{DEVICE}}" = "cpu" ]
+    then
+        # torch cpu: https://pytorch.org/get-started/previous-versions/
+        echo pip install torch~=2.9.0 --index-url https://download.pytorch.org/whl/cpu
+    fi
+    pip install {{APP_NAME}}=={{APP_VERSION}}
     smf_download
-
-    # cleaning
-    rm env.txt
 
 %environment
     export HUGGINGFACE_HUB_CACHE="/usr/local/share/huggingface"

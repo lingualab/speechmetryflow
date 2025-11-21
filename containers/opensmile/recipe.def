@@ -1,17 +1,13 @@
 Bootstrap: docker
 From: python:3.13.5-slim-bookworm
 
-%files
-    env.txt
-
 %post
+    export PIP_ROOT_USER_ACTION=ignore
+    export PIP_DISABLE_PIP_VERSION_CHECK=1
+
     # OS dependencies
     apt update
     apt install -y procps
 
     # opensmile installation
-    . /env.txt
-    pip install --root-user-action=ignore ${APP_NAME}==${APP_VERSION}
-
-    # cleaning
-    rm env.txt
+    pip install {{APP_NAME}}=={{APP_VERSION}}
