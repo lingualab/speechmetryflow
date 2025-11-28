@@ -59,3 +59,14 @@ version-file = "src/speechmetryflow/_version.py"
 
 [tool.hatch.build]
 packages = ["src/speechmetryflow"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests",]
+pythonpath = ["src",]
+addopts = """
+    --cov=src/speechmetryflow
+    --cov-report=html
+"""
+
+[tool.coverage.run]
+omit = ["*/_version.py"]
