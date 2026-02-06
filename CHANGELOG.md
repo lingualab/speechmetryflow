@@ -13,6 +13,10 @@ Added, Changed, Deprecated, Removed, Fixed, Security.
 
 - `.gitattributes` to enforce consistent end-of-line.
 
+### Fixed
+
+- speechmetryflow recipe was not building correctly with the cpu option
+
 ## [v0.2.2] – 2025-11-21
 
 ### Fixed
