@@ -27,6 +27,10 @@ def extract(
     output: Path = None,
     clobber: bool = False,
 ) -> Dict:
+    # Making task="cookie_theft" compatible
+    if task == "cookie_theft":
+        task = "cookie"
+
     # Read input text_path
     text_path = Path(text_path)
     with text_path.open("r") as txt:
