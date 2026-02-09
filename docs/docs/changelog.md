@@ -7,15 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Added, Changed, Deprecated, Removed, Fixed, Security. 
+Added, Changed, Deprecated, Removed, Fixed, Security.
+
+## [v0.2.3] – 2026-02-09
 
 ### Added
 
 - `.gitattributes` to enforce consistent end-of-line.
 
+### Changed
+
+- Documentation update.
+- lingualabpy is now at v0.1.3.
+
 ### Fixed
 
 - speechmetryflow recipe was not building correctly with the cpu option
+- task can be "cookie" or "cookie_theft" in participans_ids.csv"
 
 ## [v0.2.2] – 2025-11-21
 
