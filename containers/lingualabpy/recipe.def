@@ -7,7 +7,7 @@ From: python:3.12.4-slim-bookworm
 
     # OS dependencies
     apt update
-    apt install -y procps
+    apt install -y procps ffmpeg
 
     # lingualabpy installation
     pip install {{APP_NAME}}=={{APP_VERSION}}
