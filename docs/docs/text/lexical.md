@@ -199,47 +199,4 @@ Here are the databases for the French language: [Open Lexicon FR, Les bases de d
 
 ## Variable names
 
-- `Mots_de_classe_ouverte`
-- `Mots_de_classe_fermee`
-- `Nombre_de_gerondifs`
-- `Pronoms/(Noms+Pronoms)`
-- `Noms/(Noms+Pronoms)`
-- `Noms/(Noms+Verbes)`
-- `Verbes/(Noms+Verbes)`
-- `Verbes_avec_inflexions/Total_Verbes`
-- `Mots_de_classe_ouverte/Total_Mots`
-- `Mots_de_classe_fermee/Total_Mots`
-- `Gerondifs/Total_Verbes`
-- `Gerondifs/Total_Mots`
-- `Nombre_de_pronoms_deictiques`
-- `Nombre_de_pronoms_deictiques_spatiaux`
-- `Nombre_de_pronoms_deictiques_personnels`
-- `Nombre_de_pronoms_deictiques_temporels`
-- `Nombre_de_termes_indefinis`
-- `Ratio_termes_indefinis`
-- `MATTR_10`
-- `MATTR_25`
-- `MATTR_40`
-- `Nombre_de_mots_uniques`
-- `Statistique_R_de_Honore`
-- `Familiarite_moyenne_mots`
-- `Familiarite_moyenne_noms`
-- `Familiarite_moyenne_verbes`
-- `Familiarite_moyenne_adjectifs`
-- `Imageabilite_moyenne_mots`
-- `Imageabilite_moyenne_noms`
-- `Imageabilite_moyenne_verbes`
-- `Imageabilite_moyenne_adjectifs`
-- `Concretude_moyenne_mots`
-- `Concretude_moyenne_noms`
-- `Concretude_moyenne_verbes`
-- `Concretude_moyenne_adjectifs`
-- `Frequence_moyenne_mots`
-- `Frequence_moyenne_noms`
-- `Frequence_moyenne_verbes`
-- `Frequence_moyenne_adjectifs`
-- `Valence_moyenne_mots`
-- `Valence_moyenne_noms`
-- `Valence_moyenne_verbes`
-- `Valence_moyenne_adjectifs`
-- `Brunet_W_indice`
+{{ read_csv("lexical.csv") }}

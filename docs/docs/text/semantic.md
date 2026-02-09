@@ -24,6 +24,4 @@ The average cosine distance (semantic similarity) between all pairs of word embe
 
 ## Variable names
 
-- `Nombre_ICU_TRUE`
-- `Efficacite_ICU`
-- TODO
+{{ read_csv("semantic.csv") }}

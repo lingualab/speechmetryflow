@@ -8,6 +8,9 @@ edit_uri: edit/master/docs/docs
 
 ### Build settings ###
 
+plugins:
+  - table-reader
+
 theme:
   name: material
   palette:
@@ -24,14 +27,18 @@ theme:
         name: Switch to dark mode
 
 nav:
-  - Home: index.md
+  - Documentation:
+    - index.md
+    - installation.md
+    - getting-started.md
   - Text Features:
-    - en/lingualab-text-production.md
-    - en/lingualab-text-lexical.md
-    - en/lingualab-text-semantic.md
-    - en/lingualab-text-syntaxic.md
-    - en/lingualab-text-pragmatic.md
+    - text/speech-production.md
+    - text/lexical.md
+    - text/semantic.md
+    - text/syntaxic.md
+    - text/pragmatic.md
   - Audio Features:
-    - en/parselmouth-audio.md
-    - en/opensmile-audio.md
-    - en/uhmometer-audio.md
+    - audio/parselmouth.md
+    - audio/opensmile.md
+    - audio/uhmometer.md
+  - Changelog: changelog.md

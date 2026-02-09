@@ -153,41 +153,4 @@ Calculated in the following two ways:
 
 ## Variable names
 
-- `Longueur_moyenne_des_dependances`
-- `Longueur_maximale_des_dependances`
-- `Moyenne_enfants_gauches`
-- `Moyenne_enfants_droits`
-- `Total_enfants_gauches`
-- `Total_enfants_droits`
-- `Nombre_de_verbes_inflexion`
-- `Verbe_inflection_relatif`
-- `Sujets_Clausaux_absolu`
-- `Sujets_Clausaux_relatif`
-- `Complements_Clausaux_Controles_absolu`
-- `Complements_Clausaux_Controles_relatif`
-- `Complements_Clausaux_Non_Controles_absolu`
-- `Complements_Clausaux_Non_Controles_relatif`
-- `Modificateurs_Clauses_Adverbiaux_absolu`
-- `Modificateurs_Clauses_Adverbiaux_relatif`
-- `Modificateurs_Clauses_Adnominaux_absolu`
-- `Modificateurs_Clauses_Adnominaux_relatif`
-- `Longueur_moyenne_phrases`
-- `Nombre_de_phrases_incompletes_absolu`
-- `Nombre_de_phrases_incompletes_relatif`
-- `Nombre_de_phrases_prepositionnelles_absolu`
-- `Nombre_de_phrases_prepositionnelles_relatif`
-- `Nombre_de_phrases_verbales_absolu`
-- `Nombre_de_phrases_verbales_relatif`
-- `Nombre_absolu_phrases_nominales`
-- `Longueur_moyenne_phrases_nominales`
-- `Frequence_relative_phrases_nominales`
-- `Nbre_verb_present_absolu`
-- `Nbre_verb_present_relatif`
-- `Nbre_verb_past_absolu`
-- `Nbre_verb_past_relatif`
-- `Nbre_verb_future_absolu`
-- `Nbre_verb_future_relatif`
-- `Nbre_clauses_par_phrase`
-- `Proportion_noms_determinants`
-- `Nombre_de_phrases_coordonnees`
-- `Frequence_relative_phrases_coordonnees`
+{{ read_csv("syntaxic.csv") }}

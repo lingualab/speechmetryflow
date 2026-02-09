@@ -83,16 +83,4 @@ Could give information on an individual's lexical access capacity.
 
 ## Variable names
 
-- `Coherence_locale`
-- `Sentiment-valence`
-- `Emotion`
-- `Nombre_de_mots_incertitude`
-- `Frequence_relative_mots_incertitude`
-- `Nombre_de_mots_difficulte_acces_lexical`
-- `Frequence_relative_mots_difficulte_acces_lexical`
-- `Nombre_de_mots_expression_formulaiques`
-- `Frequence_relative_mots_expression_formulaiques`
-- `Nombre_de_mots_modalisations`
-- `Frequence_relative_mots_modalisations`
-- `Nombre_de_mots_de_remplissage`
-- `Frequence_relative_mots_de_remplissage`
+{{ read_csv("pragmatic.csv") }}

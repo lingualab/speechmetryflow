@@ -92,12 +92,4 @@ Words or content information that are present more than once in the sample (repe
 
 ### Variable names
 
-- `Nombre_de_lemmes`
-- `Nombre_de_fragments`
-- `Nombre_de_fragments_autre_methode`
-- `Fragments_en_contexte`
-- `Nombre_de_mots`
-- `Nombre_de_lemmes_differents`
-- `Nombre_de_pauses_silencieuses`
-- `Nombre_de_pauses_remplies`
-- `Nombre_de_repetitions_mots`
+{{ read_csv("speech-production.csv") }}
