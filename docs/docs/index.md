@@ -9,7 +9,7 @@ Output: csv files.
 
 Here is a quick overview of the pipeline.
 
-![General overview of speechmetryflow.](speechmetryflow-overview.png)
+![General overview of speechmetryflow.](./speechmetryflow-overview.png)
 
 ## Documentation
 
