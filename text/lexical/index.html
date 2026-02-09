@@ -1,0 +1,1750 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SpeechmetryFlow Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://lingualab.github.io/speechmetryflow/text/lexical/">
+      
+      
+        <link rel="prev" href="../speech-production/">
+      
+      
+        <link rel="next" href="../semantic/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Lexical features - SpeechmetryFlow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lexical-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SpeechmetryFlow" class="md-header__button md-logo" aria-label="SpeechmetryFlow" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SpeechmetryFlow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lexical features
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lingualab/speechmetryflow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SpeechmetryFlow" class="md-nav__button md-logo" aria-label="SpeechmetryFlow" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SpeechmetryFlow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lingualab/speechmetryflow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    speechmetryflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Text Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Text Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speech-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speech production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lexical features
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lexical features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parts-of-speech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parts-of-Speech
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-and-closed-class-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open and closed class words
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open and closed class words">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-class-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Class Words
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-class-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closed Class Words
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ratio-of-different-parts-of-speech-and-word-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ratio of different Parts-of-Speech and word types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Light verbs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deictic-pronouns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deictic pronouns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indefinite-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indefinite terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-average-type-token-ratio-mattr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving Average Type-Token Ratio (MATTR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#honores-r-statistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honoré's R statistic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brunets-w-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brunet's W index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#familiarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Familiarity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imageability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imageability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concreteness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concreteness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#word-frequency-in-everyday-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Word frequency in everyday language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#french-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        French databases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable names
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semantic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syntaxic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntactic features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pragmatic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pragmatic features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Audio Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/parselmouth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parselmouth &amp; Praat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/opensmile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openSMILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/uhmometer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uhm-o-meter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parts-of-speech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parts-of-Speech
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-and-closed-class-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open and closed class words
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open and closed class words">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-class-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Class Words
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed-class-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closed Class Words
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ratio-of-different-parts-of-speech-and-word-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ratio of different Parts-of-Speech and word types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Light verbs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deictic-pronouns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deictic pronouns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indefinite-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indefinite terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-average-type-token-ratio-mattr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving Average Type-Token Ratio (MATTR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#honores-r-statistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Honoré's R statistic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brunets-w-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brunet's W index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#familiarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Familiarity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imageability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imageability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concreteness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concreteness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#word-frequency-in-everyday-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Word frequency in everyday language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#french-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        French databases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable names
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="lexical-features">Lexical features</h1>
+<h2 id="parts-of-speech">Parts-of-Speech</h2>
+<p>Grammatical class of a word. Parts-of-Speech (POS) categorization refers to the classification of words according to their grammatical function in a sentence. This includes determining the class to which each word belongs, such as nouns pronouns verbs adverbs adjectives prepositions determiners and conjunctions.</p>
+<p>Number of occurrences of each grammatical class (nouns pronouns verbs adverbs adjectives prepositions determiners conjunctions) in the sample. Calculated in 2 ways: as an absolute number and in relation to the total number of words in the sample.</p>
+<h2 id="open-and-closed-class-words">Open and closed class words</h2>
+<p>Open-class words" and "closed-class words" are two main categories in the classification of words according to their role in the language. Total number of open-class words (nouns verbs adjectives adverbs) and closed-class words (conjunctions pronouns determiners prepositions) in the sample.</p>
+<h3 id="open-class-words">Open Class Words</h3>
+<p>These words are the main content of the speech. They are called "open" because new words can be regularly added to these categories.</p>
+<p>These words include :</p>
+<ul>
+<li>Nouns: Represent people places objects ideas (e.g. apple freedom).</li>
+<li>Verbs: Designate actions, states and occurrences (e.g.: run, be).</li>
+<li>Adjectives: Qualify or quantify nouns (e.g.: fast big).</li>
+<li>Adverbs: Modify verbs, adjectives or other adverbs (e.g.: quickly very).</li>
+</ul>
+<h3 id="closed-class-words">Closed Class Words</h3>
+<p>These words have a grammatical function rather than conveying concrete content. They form a relatively fixed and limited set of terms.</p>
+<p>These words include :
+- Conjunctions: connect words with phrases or clauses (e.g. and but).
+- Pronouns: Replace nouns (e.g.: she the one).
+- Determiners: Specify nouns (e.g.: the one).
+- Prepositions: Link a noun to another element of the sentence (e.g. in on).</p>
+<h3 id="example">Example</h3>
+<p>Here are the general steps for counting words in open and closed classes in Python using NLTK :</p>
+<ul>
+<li>Download Necessary Resources: Use <code>nltk.download('punkt')</code> and <code>nltk.download('averaged_perceptron_tagger')</code>.</li>
+<li>Tokenize text and apply POS tagging: Use word_tokenize to divide text into words and pos_tag to apply POS tagging to each word.</li>
+<li>Word Count: Count occurrences of words belonging to open (nouns verbs adjectives adverbs) and closed (conjunctions pronouns determiners prepositions) classes and calculate these numbers in absolute terms.</li>
+</ul>
+<h2 id="ratio-of-different-parts-of-speech-and-word-types">Ratio of different Parts-of-Speech and word types</h2>
+<p>Ratio of words of different grammatical classes or word types to the total number of words in the sample or to the total number of words of one or more other grammatical class(es). </p>
+<p>Total number of occurrences of a grammatical class in the sample divided by the total number of words in the sample or by the number of occurrences of one or more other grammatical class(es).</p>
+<p>The following ratios will be calculated: </p>
+<ul>
+<li>Pronouns/Nouns + Pronouns </li>
+<li>Nouns/Noms + Pronouns </li>
+<li>Nouns/Noms + Verbs</li>
+<li>Verbs/Nouns + Verbs</li>
+<li>Verbs with inflections/Total number of verbs</li>
+<li>Number of open class words/Total number of words</li>
+<li>Number of closed words/Total number of words</li>
+<li>Gerunds/Total number of verbs</li>
+<li>Gerunds/Total number of words</li>
+</ul>
+<h2 id="light-verbs">Light verbs</h2>
+<p>A light verb is a linguistic term for a verb that, taken on its own, has a limited or generic semantic content, but when combined with other words (such as nouns, adjectives or prepositions) helps create a verbal expression with a richer or more specific meaning. These often common and versatile verbs like "to do" "to put" "to take" acquire a more nuanced and specific meaning in the context of their combination with other linguistic elements. </p>
+<p>Number of occurrences of the following verbs (infinitive or conjugated) in the sample: be, have, come, go, give, take, make, do, get, move, put.</p>
+<p>Calculated in two ways:
+- in absolute numbers
+- in relation to the total number of verbs in the sample</p>
+<h2 id="deictic-pronouns">Deictic pronouns</h2>
+<p>Pronouns used to refer directly to personal temporal or local characteristics of the image to be described. The specific meaning of these pronouns depends on the context in which they are used (Crystal 2011).</p>
+<p>Total number of occurrences of words in the following four categories in the sample:</p>
+<ul>
+<li>Spatial deixis: this, that, here, there.</li>
+<li>Personal deixis: he, she, her, herself, him, himself.</li>
+<li>Temporal deixis: then, now, soon, recently.</li>
+<li>Deictic pronouns: sum of deictic pronouns from the three preceding categories.</li>
+</ul>
+<p>Calculated in 2 ways:
+- in absolute number
+- in relation to the total number of words in the sample</p>
+<h2 id="indefinite-terms">Indefinite terms</h2>
+<p>In a linguistic context, "indefinite terms" are words used to refer to objects, people or quantities in a vague or non-specific way, without designating a precise element. They are often used to talk about things in a general way or to indicate an indeterminate quantity.</p>
+<p>Examples:</p>
+<ul>
+<li>General objects or things: thing, stuff.</li>
+<li>Quantitative indefinites: little, much, few, many, several.</li>
+<li>Person indefinites: anyone, everyone, no one, someone, everybody, nobody.</li>
+<li>
+<p>Other Indefinites: another, the other, each, either, neither, both, other, others.</p>
+</li>
+<li>
+<p>General objects or things: thing, thing.</p>
+</li>
+<li>Quantitative Indefinites: little, much, some, many.</li>
+<li>Person indefinites: someone, everyone, nobody, everyone, anyone.</li>
+<li>Other Indefinites: other, the other, each, neither, both, others.</li>
+</ul>
+<p>Total number of occurrences of the following terms in the sample, calculated in 2 ways:</p>
+<ul>
+<li>as an absolute number</li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<h2 id="moving-average-type-token-ratio-mattr">Moving Average Type-Token Ratio (MATTR)</h2>
+<p>The Moving-Average Type-Token Ratio (MATTR) is a linguistic measure that calculates the moving average for all segments of a given length in a text. For a 50-word segment, for example, the Type-Token Ratio (TTR) is calculated for words 1-50 2-51 3-52 etc., and the resulting TTR measurements are averaged to produce the final MATTR value. This approach provides a more stable and representative measure of the lexical diversity of a text, as it minimizes the impact of text length on TTR.</p>
+<p>Calculated by moving a window of size <code>x</code> across the text. For each window, a Type-Token Ratio is obtained by dividing the number of unique words by the total number of words in the window. To obtain the overall MATTR of a sample, the TTR of each window is averaged. The length of each window is determined by calculating the average number of words in all DS samples.</p>
+<p>Three window groups will therefore be obtained so that each window contains 10 25 and 40 words (Covington &amp; McFall 2010).</p>
+<p>A higher MATTR indicates greater lexical diversity (Covington &amp; McFall 2010).</p>
+<p><a href="https://pypi.org/project/taaled/#:~:text=The%20Moving15">https://pypi.org/project/taaled/#:~:text=The Moving15</a></p>
+<h2 id="honores-r-statistic">Honoré's R statistic</h2>
+<p>Honoré's R statistic is a measure of lexical diversity that takes into account sample length, the number of different words used and the number of words mentioned only once.</p>
+<p>It is calculated according to the formula: <code>R=100×log(N)/(1-(V1/V))</code>.</p>
+<ul>
+<li>N is the total number of words in the sample.</li>
+<li>V is the number of different words in the sample.</li>
+<li>V1 is the number of words mentioned only once.</li>
+</ul>
+<p>This measure is particularly useful for analyzing longer texts, as it reduces the sensitivity of the lexical diversity measure to text length.</p>
+<p>A higher Honoré statistic indicates greater lexical diversity.</p>
+<p>To operationalize and calculate the Honoré R statistic in Python you first need to tokenize your text to obtain the total number of words (N) count the number of unique words (V) and identify those that appear only once (V1). Then you can apply the above formula to obtain the value of R.</p>
+<h2 id="brunets-w-index">Brunet's W index</h2>
+<p>A measure of lexical diversity relating sample length to the number of different words used in the sample.</p>
+<p>The formula for this index is: <code>W = N ^ (V ^ (-0.165))</code></p>
+<ul>
+<li>W is Brunet's W index.</li>
+<li>N is the total number of words in the text (also known as the token count).</li>
+<li>V is the total number of unique words (also known as the type count).</li>
+</ul>
+<p>A higher Brunet W index indicates less lexical diversity (inverted scale). Relatively unaffected by variations in sample length.</p>
+<h2 id="familiarity">Familiarity</h2>
+<p>Degree to which a word is familiar to speakers of a language. Subjective familiarity ratings obtained from Glasgow norms (Scott et al. 2019).</p>
+<p>Average familiarity will be calculated for all: words, nouns, verbs and adjectives in the sample.</p>
+<p>Semantic and/or lexical access deficits could be manifested by increased use of words rated as highly familiar (Fraser et al. 2016).</p>
+<h2 id="imageability">Imageability</h2>
+<p>Level of effort involved in generating a mental image of the concept represented by a word. Subjective ratings of imageability obtained from Glasgow norms (Scott et al. 2019).</p>
+<p>Average imageability will be calculated for all: words, nouns, verbs and adjectives in the sample.</p>
+<p>The "Glasgow Norms" are a set of normative ratings for 5,553 English words evaluated on nine psycholinguistic dimensions: arousal, valence, dominance, concreteness, imageability, familiarity, age of acquisition, semantic size, and gender association. This corpus is unique in several respects. It is relatively large and provides norms on a large number of lexical dimensions. For each subset of words, the same participants provided ratings on all nine dimensions. In addition, the corpus contains a set of 379 ambiguous words presented alone or with information selecting another meaning. The relationships between the Glasgow Norms dimensions were initially investigated by assessing their correlations. Principal component analysis revealed four main factors accounting for 82% of the variance. The validity of the Glasgow Norms was established through comparisons with 18 different sets of current psycholinguistic norms. The Glasgow Norms offer a valuable resource particularly for researchers investigating the role of word recognition in language comprehension.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/30206797/">https://pubmed.ncbi.nlm.nih.gov/30206797/</a></p>
+<h2 id="concreteness">Concreteness</h2>
+<p>Degree to which the concept denoted by a word refers to a perceptible/tangible entity. Subjective assessments of concreteness from Brysbaert et al. 2014.</p>
+<p>Average concreteness will be calculated for all: words, nouns, verbs and adjectives in the sample.</p>
+<p>Concreteness ratings are presented for 37,058 English words and 2,896 two-word phrases (such as crosswalk and zoom in) obtained from over 4,000 participants through a standardization study using Internet crowdsourcing for data collection. Although the instructions stress that the assessment of word concreteness would be based on experiences involving all senses and motor responses a comparison with existing concreteness norms indicates that participants as before focused largely on visual and haptic experiences. The reported dataset is a subset of a complete list of English lemmas and contains all lemmas known to at least 85% of raters. It can be used in future research as a reference list of generally known English lemmas.</p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/24142837/">https://pubmed.ncbi.nlm.nih.gov/24142837/</a></p>
+<h2 id="word-frequency-in-everyday-language">Word frequency in everyday language</h2>
+<p>Evaluation of the frequency with which a word is used in everyday speech by speakers of a language. Objective measurement of word frequency from the SUBTLEX-US corpus (Brysbaert &amp; New 2009).</p>
+<p>The average frequency will be calculated for all: words, nouns, verbs and adjectives in the sample.</p>
+<p>The SUBTLEX-US database contains word frequencies based on film subtitles as developed by Brysbaert and New in 2009. This database offers an objective measure of word frequency in American English drawn from a large corpus of subtitles. It also includes information on parts of speech (PoS) and uses Zipf's word frequency scale. This approach provides more representative data on word usage in everyday spoken language than frequencies based on written or literary texts. It is therefore particularly useful for research in psycholinguistics and automatic language processing.</p>
+<p>Difficulties in accessing specific words generally result in the overuse of words with a high frequency (Wang et al. 2021). <a href="https://osf.io/djpqz/">https://osf.io/djpqz/</a></p>
+<h2 id="valence">Valence</h2>
+<p>Degree of agreeableness of emotions invoked by a word. Subjective valence assessments from Warriner et al. 2013.</p>
+<p>Average valence will be calculated for all: words, nouns, verbs and adjectives in the sample.</p>
+<p>The 2013 Warriner et al. study involved subjective valence ratings of arousal and dominance for 13,915 English lemmas. This research involved a group of 1,827 participants rating the emotional valence of these words in an online scoring study, <a href="https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2021.770497/full">https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2021.770497/full</a>.</p>
+<p>Valence in this context refers to the affective quality of a word indicating whether it evokes positive or negative feelings. The researchers found a strong correlation between valence and dominance suggesting that stimuli could not easily be identified as varying in valence while remaining constant in dominance, <a href="https://www.sciencedirect.com/science/article/pii/S0001691821001098">https://www.sciencedirect.com/science/article/pii/S0001691821001098</a>. The results showed that the mean standard deviation of valence ratings was 168 while that of arousal ratings for the same words was 230 indicating greater variability in arousal than valence ratings, <a href="https://www.sciencedirect.com/science/article/pii/S0346251X19302039">https://www.sciencedirect.com/science/article/pii/S0346251X19302039</a>.</p>
+<p>These norms of arousal valence and dominance for English words are used by researchers working on emotions and moods word recognition and memory as well as text-based sentiment analysis, <a href="https://pubmed.ncbi.nlm.nih.gov/23404613/">https://pubmed.ncbi.nlm.nih.gov/23404613/</a>. Warriner et al.'s research thus makes a significant contribution to our understanding of how words are emotionally perceived and their impact on various areas of psycholinguistics.</p>
+<h2 id="french-databases">French databases</h2>
+<p>Here are the databases for the French language: <a href="http://www.lexique.org/?page_id=378">Open Lexicon FR, Les bases de données lexicales en français</a></p>
+<h2 id="variable-names">Variable names</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">English</th>
+<th style="text-align: left;">French</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pos_count_{category}</td>
+<td style="text-align: left;">Number of occurence of this Parts-of-Speech (POS) categorization</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_prop_{category}</td>
+<td style="text-align: left;">Ratio of occurence of this Parts-of-Speech (POS) categorization to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_count_open_words</td>
+<td style="text-align: left;">Number of open class words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_prop_open_words</td>
+<td style="text-align: left;">Ratio of open class words to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_count_closed_words</td>
+<td style="text-align: left;">Number of closed class words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_prop_closed_words</td>
+<td style="text-align: left;">Ratio of closed class words to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_count_verb_inflection</td>
+<td style="text-align: left;">Number of verbs with inflexion</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_prop_verb_inflection</td>
+<td style="text-align: left;">Ratio of verbs with inflexion to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_count_verb_gerondif</td>
+<td style="text-align: left;">Number of gerunds</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_prop_verb_gerondif</td>
+<td style="text-align: left;">Ratio of gerunds to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">PRON/(NOUN+PRON)</td>
+<td style="text-align: left;">Ratio of pronouns to the total number of nouns and pronouns</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">NOUN/(NOUN+PRON)</td>
+<td style="text-align: left;">Ratio of nouns to the total number of nouns and pronouns</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">NOUN/(NOUN+VERB)</td>
+<td style="text-align: left;">Ratio of nouns to the total number of nouns and verbs</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">VERB/(NOUN+VERB)</td>
+<td style="text-align: left;">Ratio of verbs to the total number of nouns and verbs</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">VERB_INFLECTION/VERB</td>
+<td style="text-align: left;">Ratio of verbs with inflexion to the total number of verbs</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">VERB_GERONDIF/VERB</td>
+<td style="text-align: left;">Ratio of gerunds to the total number of verbs</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_mattr_10</td>
+<td style="text-align: left;">Moving-Average Type-Token Ratio for 10-words segments (Covington &amp; McFall, 2010)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_mattr_25</td>
+<td style="text-align: left;">Moving-Average Type-Token Ratio for 25-words segments (Covington &amp; McFall, 2010)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">pos_mattr_40</td>
+<td style="text-align: left;">Moving-Average Type-Token Ratio for 40-words segments (Covington &amp; McFall, 2010)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">concreteness_mean_NOUN</td>
+<td style="text-align: left;">Average degree to which the concept denoted by the nouns refers to a perceptible/tangible entity (Brysbaert et al. 2014)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">concreteness_mean_VERB</td>
+<td style="text-align: left;">Average degree to which the concept denoted by the verbs refers to a perceptible/tangible entity (Brysbaert et al. 2014)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">concreteness_mean_ADJ</td>
+<td style="text-align: left;">Average degree to which the concept denoted by the adjectives refers to a perceptible/tangible entity (Brysbaert et al. 2014)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">concreteness_mean_all_tokens</td>
+<td style="text-align: left;">Average degree to which the concept denoted by the words refers to a perceptible/tangible entity (Brysbaert et al. 2014)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">familiarity_mean_NOUN</td>
+<td style="text-align: left;">Average familiarity of nouns (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">familiarity_mean_VERB</td>
+<td style="text-align: left;">Average familiarity of verbs (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">familiarity_mean_ADJ</td>
+<td style="text-align: left;">Average familiarity of adjectives (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">familiarity_mean_all_tokens</td>
+<td style="text-align: left;">Average familiarity of words (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">imageability_mean_NOUN</td>
+<td style="text-align: left;">Average imageability of nouns (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">imageability_mean_VERB</td>
+<td style="text-align: left;">Average imageability of verbs (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">imageability_mean_ADJ</td>
+<td style="text-align: left;">Average imageability of adjectives (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">imageability_mean_all_tokens</td>
+<td style="text-align: left;">Average imageability of words (Scott et al. 2019)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">frequency_mean_NOUN</td>
+<td style="text-align: left;">Average frequency of nouns in everyday speech by speakers of a language (Brysbaert &amp; New, 2009)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">frequency_mean_VERB</td>
+<td style="text-align: left;">Average frequency of verbs in everyday speech by speakers of a language (Brysbaert &amp; New, 2009)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">frequency_mean_ADJ</td>
+<td style="text-align: left;">Average frequency of adjectives in everyday speech by speakers of a language (Brysbaert &amp; New, 2009)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">frequency_mean_all_tokens</td>
+<td style="text-align: left;">Average frequency of words in everyday speech by speakers of a language (Brysbaert &amp; New, 2009)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">valence_mean_NOUN</td>
+<td style="text-align: left;">Average valence of nouns (Warriner et al., 2013)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">valence_mean_VERB</td>
+<td style="text-align: left;">Average valence of verbs (Warriner et al., 2013)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">valence_mean_ADJ</td>
+<td style="text-align: left;">Average valence of adjectives (Warriner et al., 2013)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">valence_mean_all_tokens</td>
+<td style="text-align: left;">Average valence of words (Warriner et al., 2013)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_deictic_pronouns_spatial</td>
+<td style="text-align: left;">Number of spatial deictic pronouns (Crystal, 2011)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_deictic_pronouns_personal</td>
+<td style="text-align: left;">Number of personal deictic pronouns (Crystal, 2011)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_deictic_pronouns_temporal</td>
+<td style="text-align: left;">Number of temporal deictic pronouns (Crystal, 2011)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_deictic_pronouns_total</td>
+<td style="text-align: left;">Number of deictic pronouns (Crystal, 2011)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_deictic_pronouns_spatial</td>
+<td style="text-align: left;">Ratio of spatial deictic pronouns (Crystal, 2011) to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_deictic_pronouns_personal</td>
+<td style="text-align: left;">Ratio of personal deictic pronouns (Crystal, 2011) to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_deictic_pronouns_temporal</td>
+<td style="text-align: left;">Ratio of temporal deictic pronouns (Crystal, 2011) to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_deictic_pronouns_total</td>
+<td style="text-align: left;">Ratio of deictic pronouns (Crystal, 2011) to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_indefinite_terms</td>
+<td style="text-align: left;">Number of indefinite terms</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_indefinite_terms</td>
+<td style="text-align: left;">Ratio of indefinite terms to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">honore_r_stat</td>
+<td style="text-align: left;">Measure of lexical diversity that takes into account sample length, the number of different words used and the number of words mentioned only once. A higher value indicates greater lexical diversity.</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">brunet_w_index</td>
+<td style="text-align: left;">Measure of lexical diversity by relating sample length to the number of different words used in the sample. A higher Brunet W index indicates less lexical diversity (inverted scale).</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

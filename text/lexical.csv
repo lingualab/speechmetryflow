@@ -1,0 +1,52 @@
+Variable name,Description,English,French
+pos_count_{category},Number of occurence of this Parts-of-Speech (POS) categorization,yes,yes
+pos_prop_{category},Ratio of occurence of this Parts-of-Speech (POS) categorization to the total number of words,yes,yes
+pos_count_open_words,Number of open class words,yes,yes
+pos_prop_open_words,Ratio of open class words to the total number of words,yes,yes
+pos_count_closed_words,Number of closed class words,yes,yes
+pos_prop_closed_words,Ratio of closed class words to the total number of words,yes,yes
+pos_count_verb_inflection,Number of verbs with inflexion,yes,yes
+pos_prop_verb_inflection,Ratio of verbs with inflexion to the total number of words,yes,yes
+pos_count_verb_gerondif,Number of gerunds,yes,yes
+pos_prop_verb_gerondif,Ratio of gerunds to the total number of words,yes,yes
+PRON/(NOUN+PRON),Ratio of pronouns to the total number of nouns and pronouns,yes,yes
+NOUN/(NOUN+PRON),Ratio of nouns to the total number of nouns and pronouns,yes,yes
+NOUN/(NOUN+VERB),Ratio of nouns to the total number of nouns and verbs,yes,yes
+VERB/(NOUN+VERB),Ratio of verbs to the total number of nouns and verbs,yes,yes
+VERB_INFLECTION/VERB,Ratio of verbs with inflexion to the total number of verbs,yes,yes
+VERB_GERONDIF/VERB,Ratio of gerunds to the total number of verbs,yes,yes
+pos_mattr_10,"Moving-Average Type-Token Ratio for 10-words segments (Covington & McFall, 2010)",yes,yes
+pos_mattr_25,"Moving-Average Type-Token Ratio for 25-words segments (Covington & McFall, 2010)",yes,yes
+pos_mattr_40,"Moving-Average Type-Token Ratio for 40-words segments (Covington & McFall, 2010)",yes,yes
+concreteness_mean_NOUN,Average degree to which the concept denoted by the nouns refers to a perceptible/tangible entity (Brysbaert et al. 2014),yes,no
+concreteness_mean_VERB,Average degree to which the concept denoted by the verbs refers to a perceptible/tangible entity (Brysbaert et al. 2014),yes,no
+concreteness_mean_ADJ,Average degree to which the concept denoted by the adjectives refers to a perceptible/tangible entity (Brysbaert et al. 2014),yes,no
+concreteness_mean_all_tokens,Average degree to which the concept denoted by the words refers to a perceptible/tangible entity (Brysbaert et al. 2014),yes,no
+familiarity_mean_NOUN,Average familiarity of nouns (Scott et al. 2019),yes,no
+familiarity_mean_VERB,Average familiarity of verbs (Scott et al. 2019),yes,no
+familiarity_mean_ADJ,Average familiarity of adjectives (Scott et al. 2019),yes,no
+familiarity_mean_all_tokens,Average familiarity of words (Scott et al. 2019),yes,no
+imageability_mean_NOUN,Average imageability of nouns (Scott et al. 2019),yes,no
+imageability_mean_VERB,Average imageability of verbs (Scott et al. 2019),yes,no
+imageability_mean_ADJ,Average imageability of adjectives (Scott et al. 2019),yes,no
+imageability_mean_all_tokens,Average imageability of words (Scott et al. 2019),yes,no
+frequency_mean_NOUN,"Average frequency of nouns in everyday speech by speakers of a language (Brysbaert & New, 2009)",yes,no
+frequency_mean_VERB,"Average frequency of verbs in everyday speech by speakers of a language (Brysbaert & New, 2009)",yes,no
+frequency_mean_ADJ,"Average frequency of adjectives in everyday speech by speakers of a language (Brysbaert & New, 2009)",yes,no
+frequency_mean_all_tokens,"Average frequency of words in everyday speech by speakers of a language (Brysbaert & New, 2009)",yes,no
+valence_mean_NOUN,"Average valence of nouns (Warriner et al., 2013)",yes,no
+valence_mean_VERB,"Average valence of verbs (Warriner et al., 2013)",yes,no
+valence_mean_ADJ,"Average valence of adjectives (Warriner et al., 2013)",yes,no
+valence_mean_all_tokens,"Average valence of words (Warriner et al., 2013)",yes,no
+n_deictic_pronouns_spatial,"Number of spatial deictic pronouns (Crystal, 2011)",yes,yes
+n_deictic_pronouns_personal,"Number of personal deictic pronouns (Crystal, 2011)",yes,yes
+n_deictic_pronouns_temporal,"Number of temporal deictic pronouns (Crystal, 2011)",yes,yes
+n_deictic_pronouns_total,"Number of deictic pronouns (Crystal, 2011)",yes,yes
+prop_deictic_pronouns_spatial,"Ratio of spatial deictic pronouns (Crystal, 2011) to the total number of words",yes,yes
+prop_deictic_pronouns_personal,"Ratio of personal deictic pronouns (Crystal, 2011) to the total number of words",yes,yes
+prop_deictic_pronouns_temporal,"Ratio of temporal deictic pronouns (Crystal, 2011) to the total number of words",yes,yes
+prop_deictic_pronouns_total,"Ratio of deictic pronouns (Crystal, 2011) to the total number of words",yes,yes
+n_indefinite_terms,Number of indefinite terms,yes,yes
+prop_indefinite_terms,Ratio of indefinite terms to the total number of words,yes,yes
+honore_r_stat,"Measure of lexical diversity that takes into account sample length, the number of different words used and the number of words mentioned only once. A higher value indicates greater lexical diversity.",yes,yes
+brunet_w_index,Measure of lexical diversity by relating sample length to the number of different words used in the sample. A higher Brunet W index indicates less lexical diversity (inverted scale).,yes,yes

@@ -1,0 +1,1510 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SpeechmetryFlow Documentation">
+      
+      
+      
+        <link rel="canonical" href="https://lingualab.github.io/speechmetryflow/text/syntaxic/">
+      
+      
+        <link rel="prev" href="../semantic/">
+      
+      
+        <link rel="next" href="../pragmatic/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Syntactic features - SpeechmetryFlow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#syntactic-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SpeechmetryFlow" class="md-header__button md-logo" aria-label="SpeechmetryFlow" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SpeechmetryFlow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Syntactic features
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lingualab/speechmetryflow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SpeechmetryFlow" class="md-nav__button md-logo" aria-label="SpeechmetryFlow" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SpeechmetryFlow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lingualab/speechmetryflow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    speechmetryflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Text Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Text Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speech-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speech production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lexical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lexical features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semantic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntactic features
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntactic features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#universal-syntactic-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal syntactic dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Universal syntactic dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length-of-syntax-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length of syntax dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-and-right-children" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left and right children
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbs-with-inflections-conjugated-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbs with inflections (conjugated verbs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subordinate-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subordinate clauses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#average-sentence-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Average sentence length
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incomplete-sentences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incomplete sentences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-prepositional-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number of prepositional phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-verbal-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number of verbal phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length-and-number-of-noun-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length and number of noun phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verb-tenses-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb tenses used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clauses-per-sentence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clauses per sentence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proportion-of-nouns-with-determiners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proportion of nouns with determiners
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinated-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinated phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable names
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pragmatic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pragmatic features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Audio Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/parselmouth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parselmouth &amp; Praat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/opensmile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openSMILE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../audio/uhmometer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uhm-o-meter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#universal-syntactic-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal syntactic dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Universal syntactic dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length-of-syntax-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length of syntax dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-and-right-children" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left and right children
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbs-with-inflections-conjugated-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbs with inflections (conjugated verbs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subordinate-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subordinate clauses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#average-sentence-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Average sentence length
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incomplete-sentences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incomplete sentences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-prepositional-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number of prepositional phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-of-verbal-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Number of verbal phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#length-and-number-of-noun-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length and number of noun phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verb-tenses-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb tenses used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clauses-per-sentence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clauses per sentence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proportion-of-nouns-with-determiners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proportion of nouns with determiners
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinated-phrases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinated phrases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable names
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="syntactic-features">Syntactic features</h1>
+<h2 id="universal-syntactic-dependencies">Universal syntactic dependencies</h2>
+<p>Universal syntactic dependencies are a set of rules that model grammatical relationships in languages. They are characterized by a hierarchical structure in which words are connected according to their syntactic function in a sentence. These rules are called "universal" because they are intended to be applicable across different languages, providing a common framework for linguistic analysis.</p>
+<p>The directional dependency relation is a specification of dependency grammar that establishes a connection between a syntactic unit (e.g. a verb) and the entities that make up its relational structure (such as subjects and objects). In a dependency tree, which is a graphical representation of these relationships, the words or morphemes are the nodes and the dependency relationships are the edges, often annotated with syntactic functions such as subject object, etc. <a href="https://fr.wikipedia.org/wiki/Grammaire_de_d%C3%A9pendance">https://fr.wikipedia.org/wiki/Grammaire_de_dépendance</a> </p>
+<p>Total number of each syntactic dependency: This means counting how many times each type of dependency relation (such as subject, object, complement, etc.) appears in a text.</p>
+<p>Calculation with spaCy dependencies (DEP): spaCy is able to analyze a sentence and identify these dependency relationships. Each word in a sentence is associated with a DEP tag that describes its syntactic role.</p>
+<p>Two calculation methods:
+- In absolute number: Count the total number of times a specific syntactic dependency appears.
+- In relation to the total number of words: Calculate the frequency of each syntactic dependency in relation to the total number of words in the sample, giving a relative measure.</p>
+<h3 id="example">Example</h3>
+<p>To illustrate the directional dependency relationship in syntax, let's consider the simple sentence: "The cat eats a mouse."</p>
+<p>In a dependency tree for this sentence :</p>
+<ul>
+<li>"eats" would be the root because it's the verb, the main action of the sentence.</li>
+<li>"The cat" would be an actant, more precisely the subject of the verb "eats". There would therefore be a directional arrow starting from "mange" and pointing towards "chat", indicating that "chat" is the subject of "mange".</li>
+<li>A mouse" would be another actant, the direct object of the verb "mange". Similarly, a directional arrow would run from "mange" to "souris" to indicate this relationship.</li>
+</ul>
+<p>In this tree, each word is connected by lines (or edges) that show how each word depends on the verb (or other words) for its syntactic function in the sentence.</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://universaldependencies.org/">Universal Dependencies</a></li>
+<li><a href="https://spacy.io/usage/linguistic-features#dependency-parse">https://spacy.io/usage/linguistic-features#dependency-parse</a></li>
+</ul>
+<h2 id="length-of-syntax-dependencies">Length of syntax dependencies</h2>
+<p>Average and maximum length of syntactic dependencies. Average and maximum number of words in a sample's syntactic dependencies.</p>
+<h2 id="left-and-right-children">Left and right children</h2>
+<p>Direct dependents of a word that are connected to it by a single arc to its left or right in the dependency tree.</p>
+<p>We measure the average number of left and right children for each word in a sample of texts. This helps us to understand the syntactic structure of the sentences in this sample.</p>
+<p>Calculated using spaCy commands <code>n_left</code> and <code>n_right</code> in two ways:</p>
+<ul>
+<li>as an absolute number</li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<p><a href="https://spacy.io/usage/linguistic-features#navigating">https://spacy.io/usage/linguistic-features#navigating</a> |</p>
+<h2 id="verbs-with-inflections-conjugated-verbs">Verbs with inflections (conjugated verbs)</h2>
+<p>Verbs in the sample that do not match their lemma as extracted by spaCy.</p>
+<p>Calculated in two ways:</p>
+<ul>
+<li>in absolute number</li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<h2 id="subordinate-clauses">Subordinate clauses</h2>
+<p>Group of words that does not express a complete thought, does not constitute a complete sentence. Complex clauses involving subordination occur when a syntactic dependent (main or not) is used as a causal structure.</p>
+<p>Total number of the 4 basic universal dependency types calculated using spaCy's default dependency parse:</p>
+<ul>
+<li>Clausal subjects (csubj)</li>
+<li>Clausal complements divided into those whose subject must be checked (subject outside the clause; <code>xcomp</code>) and those whose subject is not checked (subject inside the clause; <code>ccomp</code>).</li>
+<li>Adverbial clause modifiers (<code>advcl</code>)</li>
+<li>Adnominal clause modifiers (<code>acl</code>)</li>
+</ul>
+<p>Calculated in two ways:</p>
+<ul>
+<li>as an absolute number </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<p><a href="https://universaldependencies.org/u/overview/complex-syntax.html">https://universaldependencies.org/u/overview/complex-syntax.html</a></p>
+<h2 id="average-sentence-length">Average sentence length</h2>
+<p>Average number of words per sentence. The average number of words per sentence in the sample will be calculated. Sentence boundaries will be determined by spaCy's default "dependency parse".</p>
+<p><a href="https://spacy.io/usage/linguistic-features#sbd">https://spacy.io/usage/linguistic-features#sbd</a></p>
+<h2 id="incomplete-sentences">Incomplete sentences</h2>
+<p>Phrases that do not contain a minimum of one verb and its subject. Total number of sentences in the sample that contain no verb with its subject.</p>
+<p>Calculated in two ways:</p>
+<ul>
+<li>in absolute numbers </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<p>Could indicate: lexical-semantic deficits, syntactic deficits, difficulties with discourse planning (Boschi et al. 2017).</p>
+<h2 id="number-of-prepositional-phrases">Number of prepositional phrases</h2>
+<p>Sentences that contain a preposition its object (noun or pronoun) and any object modifier, (Boschi et al. 2017).</p>
+<p>Calculated in the following two ways:</p>
+<ul>
+<li>in absolute number </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<h2 id="number-of-verbal-phrases">Number of verbal phrases</h2>
+<p>Basic sentences containing at least one verb and its dependents. Calculated using basic spaCy implementations.</p>
+<p>Calculated in two ways:</p>
+<ul>
+<li>absolute number </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<h2 id="length-and-number-of-noun-phrases">Length and number of noun phrases</h2>
+<p>A nominal phrase is a group of words centered around a noun (substantive) that functions as the subject, object or complement in a sentence. For example, in the sentence "The black cat sleeps on the carpet", "The black cat" is a noun phrase.</p>
+<p>The length of a nominal phrase is the number of words that make it up. It can vary from two words like "A house" to a longer sequence like "The big house by the road".</p>
+<p>Total number and average length of noun phrases in the sample. Calculated using basic spaCy implementations.</p>
+<p>Calculated in two ways:</p>
+<ul>
+<li>absolute number </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<p><a href="https://spacy.io/usage/linguistic-features#noun-chunks">https://spacy.io/usage/linguistic-features#noun-chunks</a></p>
+<h2 id="verb-tenses-used">Verb tenses used</h2>
+<p>Forms verbs take to indicate when the action takes place in time. Total number of verbs conjugated in the present, past and future tenses in the sample.</p>
+<p>Calculated in two ways:</p>
+<ul>
+<li>in absolute numbers </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<h2 id="clauses-per-sentence">Clauses per sentence</h2>
+<p>Groups of words comprising a subject and a verb normally used to add further details about a noun in a sentence. Average number of clauses per sentence calculated using basic spaCy implementations.</p>
+<h2 id="proportion-of-nouns-with-determiners">Proportion of nouns with determiners</h2>
+<p>Proportion of names for which a determiner is present. Number of names in the sample attached to a determiner out of the total number of names in the sample. Calculated using spaCy's dependency parse.</p>
+<h2 id="coordinated-phrases">Coordinated phrases</h2>
+<p>Phrases linked by one or more coordinating conjunctions. Total number of sentences in the sample containing the following coordinating conjunctions: "and", "but", "for", "nor", "or", "yet", "so" (Boschi et al. 2017).</p>
+<p>Calculated in the following two ways:</p>
+<ul>
+<li>in absolute numbers </li>
+<li>in relation to the total number of words in the sample</li>
+</ul>
+<h2 id="variable-names">Variable names</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">English</th>
+<th style="text-align: left;">French</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">dep_count_{category}</td>
+<td style="text-align: left;">Number of occurence of this Universal syntactic dependencies categorization</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_prop_{category}</td>
+<td style="text-align: left;">Ratio of occurence of this Universal syntactic dependencies categorization to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_mean_distance</td>
+<td style="text-align: left;">Average length (number of words) in a sample's syntactic dependencies</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_max_distance</td>
+<td style="text-align: left;">Maximum length (number of words) in a sample's syntactic dependencies</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_total_n_lefts</td>
+<td style="text-align: left;">Total number of left children in the dependency tree</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_total_n_rights</td>
+<td style="text-align: left;">Total number of right children in the dependency tree</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_mean_n_lefts</td>
+<td style="text-align: left;">Average number of left children in the dependency tree</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">dep_mean_n_rights</td>
+<td style="text-align: left;">Average number of right children in the dependency tree</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">mean_length_sentence</td>
+<td style="text-align: left;">Average length (number of words) per sentence</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_incomplete_sentences</td>
+<td style="text-align: left;">Total number of sentences that contain no verb with its subject</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_prepositional_sentences</td>
+<td style="text-align: left;">Total number of sentences that contain a preposition, its object (noun or pronoun) and any object modifier (Boschi et al. 2017)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_verbal_sentences</td>
+<td style="text-align: left;">Total number of sentences containing at least one verb and its dependents</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_conjunctions_sentences</td>
+<td style="text-align: left;">Total number of sentences containing coordinating conjunctions (Boschi et al. 2017)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_conjunctions_sentences</td>
+<td style="text-align: left;">Ratio of sentences containing coordinating conjunctions to the total number of words (Boschi et al. 2017)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_nominal_sentences</td>
+<td style="text-align: left;">Total number of noun phrases</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">mean_length_nominal_sentence</td>
+<td style="text-align: left;">Average length (number of words) of noun phrases</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_nominal_sentences</td>
+<td style="text-align: left;">Ratio of noun phrases to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_present_verb</td>
+<td style="text-align: left;">Total number of verbs conjugated in the present tense</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">n_present_verb</td>
+<td style="text-align: left;">Ratio of verbs conjugated in the present tense to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_past_verb</td>
+<td style="text-align: left;">Total number of verbs conjugated in the past tense</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">prop_past_verb</td>
+<td style="text-align: left;">Ratio of verbs conjugated in the past tense to the total number of words</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">clauses_per_sentence</td>
+<td style="text-align: left;">Average number of clauses per sentence</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">nouns_with_determiners_proportion</td>
+<td style="text-align: left;">Ratio of names in the sample attached to a determiner to the total number of names in the sample</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

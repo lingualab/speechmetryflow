@@ -1,0 +1,13 @@
+Variable name,Description,English,French
+n_tokens,Number of words,yes,yes
+n_different_tokens,Number os different words,yes,yes
+n_unique_tokens,Number of words that appear one time,yes,yes
+n_repetition_tokens,Number of words present more than one time,yes,yes
+n_lemmas,Number of lemmas,yes,yes
+n_different_lemmas,Number os different lemmas,yes,yes
+n_unique_lemmas,Number of lemmas that appear one time,yes,yes
+n_repetition_lemmas,Number of lemmas present more than one time,yes,yes
+n_fragments,Number of word fragments,yes,yes
+n_fragments_context,Number of word fragments in the context of the cookie theft task,yes,no
+n_silent_pauses,"Number of times '[pause]' appears in the sample",yes,yes
+n_filled_pauses,"Number of occurrences of the words 'uhm'  in the sample",yes,yes

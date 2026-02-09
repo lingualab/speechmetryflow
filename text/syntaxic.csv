@@ -1,0 +1,24 @@
+Variable name,Description,English,French
+dep_count_{category},Number of occurence of this Universal syntactic dependencies categorization,yes,yes
+dep_prop_{category},Ratio of occurence of this Universal syntactic dependencies categorization to the total number of words,yes,yes
+dep_mean_distance,Average length (number of words) in a sample's syntactic dependencies,yes,yes
+dep_max_distance,Maximum length (number of words) in a sample's syntactic dependencies,yes,yes
+dep_total_n_lefts,Total number of left children in the dependency tree,yes,yes
+dep_total_n_rights,Total number of right children in the dependency tree,yes,yes
+dep_mean_n_lefts,Average number of left children in the dependency tree,yes,yes
+dep_mean_n_rights,Average number of right children in the dependency tree,yes,yes
+mean_length_sentence,Average length (number of words) per sentence,yes,yes
+n_incomplete_sentences,Total number of sentences that contain no verb with its subject,yes,yes
+n_prepositional_sentences,"Total number of sentences that contain a preposition, its object (noun or pronoun) and any object modifier (Boschi et al. 2017)",yes,yes
+n_verbal_sentences,Total number of sentences containing at least one verb and its dependents,yes,yes
+n_conjunctions_sentences,"Total number of sentences containing coordinating conjunctions (Boschi et al. 2017)",yes,yes
+prop_conjunctions_sentences,"Ratio of sentences containing coordinating conjunctions to the total number of words (Boschi et al. 2017)",yes,yes
+n_nominal_sentences,Total number of noun phrases,yes,yes
+mean_length_nominal_sentence,Average length (number of words) of noun phrases,yes,yes
+prop_nominal_sentences,Ratio of noun phrases to the total number of words,yes,yes
+n_present_verb,Total number of verbs conjugated in the present tense,yes,no
+n_present_verb,Ratio of verbs conjugated in the present tense to the total number of words,yes,no
+prop_past_verb,Total number of verbs conjugated in the past tense,yes,no
+prop_past_verb,Ratio of verbs conjugated in the past tense to the total number of words,yes,no
+clauses_per_sentence,Average number of clauses per sentence,yes,yes
+nouns_with_determiners_proportion,Ratio of names in the sample attached to a determiner to the total number of names in the sample,yes,yes
