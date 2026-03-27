@@ -14,11 +14,14 @@ def general_cleaning(raw_text: str) -> str:
     Returns:
     str: Cleaned up text
     """
+    # Replace wrong apostrophes with correct ones
+    content = content.replace("’", "'")
+    
     # Removes content between square brackets ([...])
     text = re.sub(r"\[.*?\]", "", raw_text)
 
     # Removes punctuation, keeping letters, apostrophes, spaces, periods, and question marks
-    text = re.sub(r"[^\w\’ \.\?]", "", text)
+    text = re.sub(r"[^\w\' \.\?]", "", text)
 
     # Removes periods following a space
     text = re.sub(r"\s\.", "", text)
