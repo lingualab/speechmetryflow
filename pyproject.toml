@@ -32,7 +32,7 @@ dependencies = [
   "importlib_resources",
   "nltk",
   "textdescriptives",
-  "transformers[torch]",
+  "transformers[torch]==4.57.1",
   "protobuf",
   "sentencepiece",
 ]
