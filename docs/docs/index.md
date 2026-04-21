@@ -1,3 +1,7 @@
+
+[![github actions docs](https://github.com/lingualab/speechmetryflow/actions/workflows/docs.yml/badge.svg)](https://lingualab.github.io/speechmetryflow/)
+[![joss status](https://joss.theoj.org/papers/65e15dcca1964b85738237782d74e0cd/status.svg)](https://joss.theoj.org/papers/65e15dcca1964b85738237782d74e0cd)
+
 # speechmetryflow
 
 speechmetryflow is an automated nextflow-based workflow designed to extract both audio and text metrics from speech at scale.
@@ -15,12 +19,10 @@ Here is a quick overview of the pipeline.
 
 | Documentation         |                                                       |
 | ----------------------| ----------------------------------------------------- |
-| **[Documentation]**   | The whole documentation and the features description. |
 | **[Installation]**    | Softwares dependencies of speechmetryflow.            |
 | **[Getting started]** | Instructions on how to run speechmetryflow.           |
 | **[Changelog]**       | Changes and version history.                          |
 
-[Documentation]: https://lingualab.github.io/speechmetryflow/index.html
 [Installation]: https://lingualab.github.io/speechmetryflow/installation/
 [Getting started]: https://lingualab.github.io/speechmetryflow/getting-started/
 [Changelog]: https://lingualab.github.io/speechmetryflow/changelog/

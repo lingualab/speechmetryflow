@@ -35,6 +35,7 @@ dependencies = [
   "transformers[torch]==4.57.1",
   "protobuf",
   "sentencepiece",
+  "spacy==3.8.11",
 ]
 
 [project.optional-dependencies]
